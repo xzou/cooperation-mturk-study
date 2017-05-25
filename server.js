@@ -9,7 +9,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-var uri = process.env.MONGODB_URI || process.env.MONGOLAB_URI; 
+var uri = process.env.MONGODB_URI || process.env.MONGOLAB_URI ||
+'mongodb://heroku_506s23zx:1d9enosd9098813rnar282a5bp@ds121171.mlab.com:21171/heroku_506s23zx';
 
 var Player = require('./app/models/player');
 
