@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { PDIntroComponent } from './pd-intro/pd-intro.component';
 import { NextButtonComponent } from './next-button/next-button.component';
 
-import { AppRouterModule } from './app-routing.module'
+import { AppRouterModule } from './app-routing.module';
+import { PDInstructionsComponent } from './pd-instructions/pd-instructions.component';
+import { PDPaymentInfoComponent } from './pd-payment-info/pd-payment-info.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     PDIntroComponent,
-    NextButtonComponent
+    NextButtonComponent,
+    PDInstructionsComponent,
+    PDPaymentInfoComponent
   ],
   imports: [
     BrowserModule,
