@@ -6,7 +6,7 @@ import { PDPaymentInfoComponent } from './pd-payment-info/pd-payment-info.compon
 
 const routes: Routes = [
   {
-    path: 'intro', 
+    path: 'main', 
     component: PDIntroComponent 
   },
   {
@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/intro',
+    redirectTo: '/main',
     pathMatch: 'full'
   },
 ];
