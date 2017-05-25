@@ -8,6 +8,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var path = require('path');
 
 var uri = process.env.MONGODB_URI || process.env.MONGOLAB_URI ||
 'mongodb://heroku_506s23zx:1d9enosd9098813rnar282a5bp@ds121171.mlab.com:21171/heroku_506s23zx';
@@ -16,6 +17,9 @@ var Player = require('./app/models/player');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// Set locations of static files
+app.use(express.static(path.join(__dirname, '/dist')));
 
 mongoose.connect(uri, function(err, res) {
   if (err) {
