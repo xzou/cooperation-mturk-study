@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,8 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./pd-quiz-end.component.css']
 })
 
-export class PDQuizEndComponent {
+export class PDQuizEndComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  ngOnInit () {
+    this.router.navigateByUrl('/ended');
+  }
 
 }

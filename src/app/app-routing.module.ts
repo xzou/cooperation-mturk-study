@@ -8,6 +8,7 @@ import { PDTransitionComponent } from './pd-transition/pd-transition.component';
 import { PDGameComponent } from './pd-game/pd-game.component';
 import { PDNameComponent } from './pd-name/pd-name.component';
 import { PDQuizEndComponent } from './pd-quiz-end/pd-quiz-end.component';
+import { PDForwardEndComponent } from './pd-forward-end/pd-forward-end.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'end',
     component: PDQuizEndComponent
+  },
+  {
+    path: 'ended',
+    component: PDForwardEndComponent
   },
   {
     path: '',

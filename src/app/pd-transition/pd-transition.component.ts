@@ -20,7 +20,7 @@ export class PDTransitionComponent {
   ngOnInit() {
     this.interval = setInterval(() => {
       this.setFound();
-    }, 4000);
+    }, 3500);
   }
 
   isFound() {
