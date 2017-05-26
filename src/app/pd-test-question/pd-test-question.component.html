@@ -1,6 +1,18 @@
-<p>
-  pd-test-question works!
-</p>
+<div>
+  <p><strong>You must answer this question correctly to play the game.</strong></p>
+</div>
+<div class="question">
+  <p>Quiz: What does it mean to cooperate and to defect?</p>
+</div> <!-- div class="question" -->
 
+<form #f="ngForm" (ngSubmit)="checkAnswer()">
+  <input type="radio" name="quizAnswer" [(ngModel)]="selectedOption" value="1"><label>{{ choiceAText }}</label> <br>
+  <input type="radio" name="quizAnswer" [(ngModel)]="selectedOption" value="2"><label>{{ choiceBText }}</label> <br>
+  <button type="submit" [disabled]="!isAnswered()" [hidden]="isSubmitted()">Submit</button>
+</form>
+
+{{ feedback }}
+
+<div *ngIf="is_correct == true">
 <pd-nav-button url="4" label="Next"></pd-nav-button><br>
-<pd-nav-button url="3" label="Back"></pd-nav-button>
+</div>
