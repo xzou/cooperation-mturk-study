@@ -36,18 +36,15 @@ export class PDTestQuestionComponent {
   }
 
   checkAnswer() {
-    console.log('Initial: ', this.is_submitted);
     if (this.selectedOption === '1') {
       this.feedback = this.feedbackIncor;
       this.is_correct = false;
       this.is_submitted = true;
-      console.log('After: ', this.is_submitted);
     }
     else if (this.selectedOption === '2') {
       this.feedback = this.feedbackCor;
       this.is_correct = true;
       this.is_submitted = true;
-      console.log('After 2: ', this.is_submitted);
     }
     else 
       console.log('Invalid value of quiz answer');
