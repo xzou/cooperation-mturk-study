@@ -17,7 +17,7 @@ export class PDNameComponent implements OnInit {
 
   ngOnInit() {
     if (this.isRevisited()) {
-      this.router.navigate(['/end'], {replaceUrl: true} );
+      this.router.navigate(['/end'], { replaceUrl: true } );
     }
   }
   
@@ -30,6 +30,7 @@ export class PDNameComponent implements OnInit {
     return this.firstName !== '';
   }
 
+  // Check to see if player arrived at this page via the browser back button
   isRevisited() {
     return this.curPlayerService.getName() !== '';
   }

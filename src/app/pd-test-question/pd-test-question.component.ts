@@ -53,9 +53,5 @@ export class PDTestQuestionComponent {
   isSubmitted() {
     return this.is_submitted;
   }
-
-  onClick() {
-    this.router.navigate(['/5'], { replaceUrl: true });
-  }
 }
 
