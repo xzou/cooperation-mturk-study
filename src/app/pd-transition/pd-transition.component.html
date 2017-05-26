@@ -1,0 +1,13 @@
+<div *ngIf="!isFound()"><p>Finding opponent...</p></div>
+
+<div *ngIf="isFound()">
+  <p>Congratulations! You have been paired with another player.
+  You will play this game with Kai. Please note: to receive
+  your payment, you must finish the experiment. Press "Next" to
+  continue.</p>
+  <pd-nav-button url="2" label="Next"></pd-nav-button>
+</div>
+
+
+
+

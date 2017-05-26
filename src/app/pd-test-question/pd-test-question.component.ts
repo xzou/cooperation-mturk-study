@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import { Player } from '../players/player';
-
 @Component({
   selector: 'pd-test-question',
   templateUrl: './pd-test-question.component.html',
@@ -9,7 +7,7 @@ import { Player } from '../players/player';
 })
 
 export class PDTestQuestionComponent {
-  public player: Player;
+  constructor() {} 
    
   choiceAText: string = `Cooperate means I don't pay anything and 
   can still collect points. Defect means I pay 20 of my own
