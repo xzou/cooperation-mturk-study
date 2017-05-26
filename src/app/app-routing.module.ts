@@ -7,6 +7,7 @@ import { PDTestQuestionComponent } from './pd-test-question/pd-test-question.com
 import { PDTransitionComponent } from './pd-transition/pd-transition.component';
 import { PDGameComponent } from './pd-game/pd-game.component';
 import { PDNameComponent } from './pd-name/pd-name.component';
+import { PDQuizEndComponent } from './pd-quiz-end/pd-quiz-end.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: '6',
     component: PDGameComponent
+  },
+  {
+    path: 'end',
+    component: PDQuizEndComponent
   },
   {
     path: '',

@@ -15,6 +15,7 @@ import { PDTestQuestionComponent } from './pd-test-question/pd-test-question.com
 import { PDTransitionComponent } from './pd-transition/pd-transition.component';
 import { PDGameComponent } from './pd-game/pd-game.component';
 import { PDNameComponent } from './pd-name/pd-name.component';
+import { PDQuizEndComponent } from './pd-quiz-end/pd-quiz-end.component';
 
 //import { CurrentPlayerService } from './players/current-player.service';
 
@@ -28,7 +29,8 @@ import { PDNameComponent } from './pd-name/pd-name.component';
     PDTestQuestionComponent,
     PDTransitionComponent,
     PDGameComponent,
-    PDNameComponent
+    PDNameComponent,
+    PDQuizEndComponent
   ],
   imports: [
     BrowserModule,

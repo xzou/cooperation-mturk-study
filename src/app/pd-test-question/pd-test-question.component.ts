@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'pd-test-question',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 
 export class PDTestQuestionComponent {
-  constructor() {} 
+  constructor(private router: Router) {} 
    
   choiceAText: string = `Cooperate means I don't pay anything and 
   can still collect points. Defect means I pay 20 of my own
@@ -38,6 +39,7 @@ export class PDTestQuestionComponent {
       this.feedback = this.feedbackIncor;
       this.is_correct = false;
       this.is_submitted = true;
+      this.router.navigate(['/end'], { replaceUrl: true });
     }
     else if (this.selectedOption === '2') {
       this.feedback = this.feedbackCor;
@@ -46,10 +48,14 @@ export class PDTestQuestionComponent {
     }
     else 
       console.log('Invalid value of quiz answer');
-  } 
+    }
 
   isSubmitted() {
     return this.is_submitted;
+  }
+
+  onClick() {
+    this.router.navigate(['/5'], { replaceUrl: true });
   }
 }
 

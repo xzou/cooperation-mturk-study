@@ -1,4 +1,4 @@
-<div class="name">
+<div class="name" [hidden]="isRevisited()">
 <form #f="ngForm" (ngSubmit)="setName()">
   <label>Please enter your first name</label><br>
   <input type="text" name="playerName" [(ngModel)]="firstName">

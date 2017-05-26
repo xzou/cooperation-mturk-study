@@ -13,6 +13,6 @@ export class PDNavButtonComponent {
   constructor(private router: Router) {}
 
   onClickGoTo = function() {
-    this.router.navigateByUrl('/' + this.url);
+    this.router.navigateByUrl('/' + this.url, {replaceUrl: true});
   }
 }
