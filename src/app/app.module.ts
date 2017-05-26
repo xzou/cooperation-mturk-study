@@ -15,6 +15,8 @@ import { PDTestQuestionComponent } from './pd-test-question/pd-test-question.com
 import { PDTransitionComponent } from './pd-transition/pd-transition.component';
 import { PDGameComponent } from './pd-game/pd-game.component';
 
+//import { CurrentPlayerService } from './players/current-player.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,4 +37,5 @@ import { PDGameComponent } from './pd-game/pd-game.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

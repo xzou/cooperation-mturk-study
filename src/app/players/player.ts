@@ -8,9 +8,4 @@ export class Player {
   opp_contributions: number[];
   probabilities: number[];
   mturk_code: string;
-
-  constructor(ip: string, is_correct: boolean) {
-    this.IP = ip;
-    this.name = name;
-  }
 }
