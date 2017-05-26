@@ -61,7 +61,7 @@ router.route('/players')
     var player = new Player();
 
     player.IP = req.body.IP;
-    player.is_correct = req.body.is_correct;
+    player.name = req.body.name;
 
     // Save player 
     player.save(function(err) {
@@ -86,6 +86,7 @@ router.route('/players/:player_id')
       if (err) 
         res.send(err);
 
+      player.is_correct = req.body.is_correct;
       player.contributions = req.body.contributions;
       player.opp_contributions = req.body.opp_contributions;
       player.probabilities = req.body.probabilities;

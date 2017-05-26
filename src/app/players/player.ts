@@ -1,5 +1,6 @@
 export class Player {
   _id?: string;
+  name: string;
   IP: string;
   is_correct: boolean;
   contributions: number[];
@@ -10,6 +11,6 @@ export class Player {
 
   constructor(ip: string, is_correct: boolean) {
     this.IP = ip;
-    this.is_correct = is_correct;
+    this.name = name;
   }
 }

@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 
 var PlayerSchema = new Schema ({
   IP: String,
+  name: String,
   is_correct: Boolean,
   contributions: [],
   times: [],
