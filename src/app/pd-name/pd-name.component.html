@@ -1,0 +1,8 @@
+<div class="name">
+<form #f="ngForm" (ngSubmit)="setName()">
+  <label>Please enter your first name</label><br>
+  <input type="text" name="playerName" [(ngModel)]="firstName">
+  <button type="submit" [disabled]="!isValid()">Submit</button>
+</form>
+</div>
+

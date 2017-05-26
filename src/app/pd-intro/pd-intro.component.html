@@ -1,4 +1,4 @@
-<h1>Welcome</h1>
+<h1>Welcome {{firstName}}</h1>
 <div class="intro">
   In this study you will be playing a game with another player. 
   The game is straightforward: your goal is to collect as many points as possible, as the 
@@ -8,11 +8,5 @@
   basic questions about the game correctly to make sure you understand the rules of the game.
   Failure to answer these questions correctly will prevent you from playing.</strong>
 </div> <!-- div class="intro" -->
-
-<form #f="ngForm" (ngSubmit)="setName()">
-  <label>Please enter your first name</label><br>
-  <input type="text" name="playerName" [(ngModel)]="firstName">
-  <button type="submit">Submit</button>
-</form>
 
 <pd-nav-button url="2" label="Next"></pd-nav-button>

@@ -14,6 +14,7 @@ import { PDPaymentInfoComponent } from './pd-payment-info/pd-payment-info.compon
 import { PDTestQuestionComponent } from './pd-test-question/pd-test-question.component';
 import { PDTransitionComponent } from './pd-transition/pd-transition.component';
 import { PDGameComponent } from './pd-game/pd-game.component';
+import { PDNameComponent } from './pd-name/pd-name.component';
 
 //import { CurrentPlayerService } from './players/current-player.service';
 
@@ -26,7 +27,8 @@ import { PDGameComponent } from './pd-game/pd-game.component';
     PDPaymentInfoComponent,
     PDTestQuestionComponent,
     PDTransitionComponent,
-    PDGameComponent
+    PDGameComponent,
+    PDNameComponent
   ],
   imports: [
     BrowserModule,

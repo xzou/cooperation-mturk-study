@@ -14,9 +14,6 @@ export class PDIntroComponent {
 
   constructor(private router: Router, private curPlayerService: CurrentPlayerService) { }
 
-  firstName: string;
+  firstName: string = this.curPlayerService.getName();
 
-  setName() {
-    this.curPlayerService.saveName(this.firstName);
-  }
 }
