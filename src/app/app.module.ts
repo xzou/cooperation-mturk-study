@@ -12,6 +12,7 @@ import { AppRouterModule } from './app-routing.module';
 import { PDInstructionsComponent } from './pd-instructions/pd-instructions.component';
 import { PDPaymentInfoComponent } from './pd-payment-info/pd-payment-info.component';
 import { PDTestQuestionComponent } from './pd-test-question/pd-test-question.component';
+import { PDTransitionComponent } from './pd-transition/pd-transition.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PDTestQuestionComponent } from './pd-test-question/pd-test-question.com
     PDNavButtonComponent,
     PDInstructionsComponent,
     PDPaymentInfoComponent,
-    PDTestQuestionComponent
+    PDTestQuestionComponent,
+    PDTransitionComponent
   ],
   imports: [
     BrowserModule,
