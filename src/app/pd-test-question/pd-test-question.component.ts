@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -24,6 +24,7 @@ export class PDTestQuestionComponent {
   is_correct: boolean;
   is_answered: boolean = false;
   is_submitted: boolean = false;
+  interval: any;
 
   isAnswered() {
     if (this.selectedOption === '1' || this.selectedOption === '2') {
@@ -39,7 +40,9 @@ export class PDTestQuestionComponent {
       this.feedback = this.feedbackIncor;
       this.is_correct = false;
       this.is_submitted = true;
-      this.router.navigate(['/end'], { replaceUrl: true });
+      this.interval = setInterval(() => {
+        this.router.navigate(['/end'], { replaceUrl: true });
+      }, 2000);
     }
     else if (this.selectedOption === '2') {
       this.feedback = this.feedbackCor;
@@ -52,6 +55,12 @@ export class PDTestQuestionComponent {
 
   isSubmitted() {
     return this.is_submitted;
+  }
+
+  ngOnDestroy () {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
   }
 }
 
