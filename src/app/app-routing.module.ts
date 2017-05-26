@@ -5,6 +5,7 @@ import { PDInstructionsComponent } from './pd-instructions/pd-instructions.compo
 import { PDPaymentInfoComponent } from './pd-payment-info/pd-payment-info.component';
 import { PDTestQuestionComponent } from './pd-test-question/pd-test-question.component';
 import { PDTransitionComponent } from './pd-transition/pd-transition.component';
+import { PDGameComponent } from './pd-game/pd-game.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: '5',
     component: PDTransitionComponent
+  },
+  {
+    path: '6',
+    component: PDGameComponent
   },
   {
     path: '',

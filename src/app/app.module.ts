@@ -13,6 +13,7 @@ import { PDInstructionsComponent } from './pd-instructions/pd-instructions.compo
 import { PDPaymentInfoComponent } from './pd-payment-info/pd-payment-info.component';
 import { PDTestQuestionComponent } from './pd-test-question/pd-test-question.component';
 import { PDTransitionComponent } from './pd-transition/pd-transition.component';
+import { PDGameComponent } from './pd-game/pd-game.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PDTransitionComponent } from './pd-transition/pd-transition.component';
     PDInstructionsComponent,
     PDPaymentInfoComponent,
     PDTestQuestionComponent,
-    PDTransitionComponent
+    PDTransitionComponent,
+    PDGameComponent
   ],
   imports: [
     BrowserModule,
