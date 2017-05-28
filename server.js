@@ -60,8 +60,9 @@ router.route('/players')
   .post(function(req, res) {
     var player = new Player();
 
-    player.IP = req.body.IP;
+    player.ip = req.body.ip;
     player.name = req.body.name;
+    player.is_correct = req.body.is_correct;
 
     // Save player 
     player.save(function(err) {

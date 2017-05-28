@@ -11,7 +11,6 @@ export class PDSorryComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    //this.router.navigate(['/end'], { replaceUrl: true });
   }
 
 }

@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var PlayerSchema = new Schema ({
-  IP: String,
+  ip: String,
   name: String,
   is_correct: Boolean,
   contributions: [],

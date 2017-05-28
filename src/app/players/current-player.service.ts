@@ -9,7 +9,7 @@ export class CurrentPlayerService {
 
   player: Player = {
     name: '',
-    IP: '',
+    ip: '',
     is_correct: true,
     contributions: [],
     times: [],
@@ -24,5 +24,13 @@ export class CurrentPlayerService {
 
   saveName(name: string) {
     this.player.name = name;
+  }
+
+  saveIP(ip: string) {
+    this.player.ip = ip;
+  }
+
+  getIP() {
+    return this.player.ip;
   }
 }

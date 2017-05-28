@@ -1,15 +1,22 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { Player } from '../players/player';
+import { CurrentPlayerService } from '../players/current-player.service';
+import { PlayerService } from '../players/player.service';
+
 @Component({
   selector: 'pd-test-question',
   templateUrl: './pd-test-question.component.html',
-  styleUrls: ['./pd-test-question.component.css']
+  styleUrls: ['./pd-test-question.component.css'],
+  providers: [ PlayerService ]
 })
 
 export class PDTestQuestionComponent {
-  constructor(private router: Router) {} 
-   
+  constructor(private router: Router,
+              private curPlayerService: CurrentPlayerService,
+              private playerService: PlayerService) {} 
+
   choiceAText: string = `Cooperate means I don't pay anything and 
   can still collect points. Defect means I pay 20 of my own
   points to give the other player 40 points`;
@@ -51,10 +58,19 @@ export class PDTestQuestionComponent {
     }
     else 
       console.log('Invalid value of quiz answer');
+
+    this.savePlayer();
     }
 
   isSubmitted() {
     return this.is_submitted;
+  }
+
+  savePlayer() {
+    var name: string = this.curPlayerService.getName();
+    var ip: string = this.curPlayerService.getIP();
+    var player = new Player(name, ip, this.is_correct);
+    this.playerService.addPlayer(player);
   }
 
   ngOnDestroy () {

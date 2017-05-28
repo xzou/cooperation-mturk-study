@@ -26,6 +26,8 @@ export class PDNameComponent implements OnInit {
       this.ipService.getIP().then(data => {
         if (this.checkIP(data.ip)) {
           console.log('womp womp');
+        } else {
+            this.curPlayerService.saveIP(data.ip);
         }
       });
     }
