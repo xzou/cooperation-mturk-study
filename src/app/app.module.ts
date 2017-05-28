@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import 'rxjs/Rx';
 
 import { AppComponent } from './app.component';
 import { PDIntroComponent } from './pd-intro/pd-intro.component';
@@ -17,6 +18,7 @@ import { PDGameComponent } from './pd-game/pd-game.component';
 import { PDNameComponent } from './pd-name/pd-name.component';
 import { PDQuizEndComponent } from './pd-quiz-end/pd-quiz-end.component';
 import { PDForwardEndComponent } from './pd-forward-end/pd-forward-end.component';
+import { PDSorryComponent } from './pd-sorry/pd-sorry.component';
 
 //import { CurrentPlayerService } from './players/current-player.service';
 
@@ -32,12 +34,14 @@ import { PDForwardEndComponent } from './pd-forward-end/pd-forward-end.component
     PDGameComponent,
     PDNameComponent,
     PDQuizEndComponent,
-    PDForwardEndComponent
+    PDForwardEndComponent,
+    PDSorryComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    JsonpModule,
     AppRouterModule
   ],
   providers: [],
