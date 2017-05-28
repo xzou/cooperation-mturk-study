@@ -1,1 +1,18 @@
-<h3>Here's the game</h3>
+<div class="game-instructions">
+  <p>Remember: during this game, you may either cooperate by contributing 20
+  points so that your opponent receives 40 points, or defect by contributing
+  nothing.</p>
+</div>
+
+<h2>Total points: {{totalPoints}}    Round number: {{roundNumber}}</h2>
+
+<div class="self-contrib">
+  <form #f="ngForm" (ngSubmit)=saveContrib()>
+    <label>Would you like to cooperate or to defect?</label> <br>
+    <input type="radio" name="game-choice" [(ngModel)]="choice" value="true"> Cooperate <br>
+    <input type="radio" name="game-choice" [(ngModel)]="choice" value="false"> Defect <br>
+  </form>
+</div>
+
+<pd-game-self></pd-game-self>
+<pd-game-opp></pd-game-opp>
