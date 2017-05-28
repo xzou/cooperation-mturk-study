@@ -25,8 +25,10 @@ export class PDGameComponent implements OnInit {
   totalSelfContrib: number[];
   totalOppContrib: number[];
   condition: number = 1;
-  pCoop: number = 0.2;
-  roundNumber: number=0;
+  pCoop1: number = .2;
+  pCoop2: number = 1-this.pCoop1;
+  pCoop: number = this.pCoop1;
+  roundNumber: number = 1;
   submitted: boolean = false;
   population: number[];
 
@@ -35,20 +37,12 @@ export class PDGameComponent implements OnInit {
               private gameService: GameService) { }
 
   ngOnInit() {
-    this.population = this.setPopulation();
-    this.playGame();
+    this.startGame();
   }
 
-  playGame() {
-      this.roundNumber += 1;
-      this.setOppContrib(); 
-      if (this.isSubmitted()) {
-        this.setContrib();
-        this.setPoints();
-        this.submitted = false;
-      } else {
-        this.choice = '';
-      }
+  startGame() {
+    this.population = this.setPopulation();
+    this.setOppContrib(); 
   }
 
   setContrib() {
@@ -73,6 +67,7 @@ export class PDGameComponent implements OnInit {
       this.oppContrib = 20;
     }
     this.gameService.addOppContrib(this.oppContrib);
+    console.log('Opponent contribution: ', this.gameService.getOppContrib());
   }
 
   setPopulation() {
@@ -87,6 +82,7 @@ export class PDGameComponent implements OnInit {
   nextRound() {
     this.submitted = false;
     this.roundNumber += 1;
+    this.setPCoop();
     this.setOppContrib();
   }
 
@@ -97,11 +93,39 @@ export class PDGameComponent implements OnInit {
     }
   }
 
+  setPCoop() {
+    if (this.condition === 1) {
+      if (this.roundNumber === 10) {
+        this.pCoop = this.pCoop2;
+        this.setPopulation();
+      }
+      console.log('Probability of cooperation: ', this.pCoop);
+    } else if (this.condition === 2) {
+        if (this.roundNumber === 20 || this.roundNumber === 60) {
+          this.pCoop = this.pCoop2;
+        } else if(this.roundNumber === 40) {
+          this.pCoop = this.pCoop1;
+        }
+    }
+  }
+
   isAnswered() {
     return this.choice ==='cooperate' || this.choice === 'defect';
   }
 
   isSubmitted() {
     return this.submitted;
+  }
+
+  isGameOver() {
+    if (this.isSubmitted() && this.roundNumber === 20) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  showNextButton() {
+    return !this.isSubmitted() || this.isGameOver();
   }
 }

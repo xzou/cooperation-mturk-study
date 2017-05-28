@@ -12,8 +12,12 @@
     <input type="radio" name="game-choice" [(ngModel)]="choice" value="cooperate"> Cooperate <br>
     <input type="radio" name="game-choice" [(ngModel)]="choice" value="defect"> Defect <br>
     <button type="button" [disabled]="!isAnswered()" [hidden]="isSubmitted()" (click)="setContrib()">Submit</button>
-    <button type="button" (click)="nextRound(); f.reset()">Next Round</button>
+    <button type="button" [hidden]="showNextButton()" (click)="nextRound(); f.reset()">Next Round</button>
   </form>
+</div>
+
+<div class="game-over" [hidden]="!isGameOver()">
+  <h4>Hooray game over goodbye</h4>
 </div>
 
 
