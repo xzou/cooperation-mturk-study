@@ -12,6 +12,15 @@ export class PDIPService {
 
   getIP() {
     return this.jsonp.get('//api.ipify.org/?format=jsonp&callback=JSONP_CALLBACK')
-                .map( response => response.json()); 
+                .toPromise()
+                .then( response => response.json())
+                .catch(this.handleError);
+  }
+
+  private handleError (error) {
+    let errMsg = (error.message) ? error.message:
+      error.status ? `${error.status} - ${error.statusText}` :
+      'Server error happening';
+    console.log(errMsg);
   }
 }

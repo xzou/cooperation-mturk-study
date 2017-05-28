@@ -20,9 +20,9 @@ export class PDNameComponent implements OnInit {
   firstName: string = '';
 
   ngOnInit() {
-    this.ipService.getIP().subscribe(data => {
+    this.ipService.getIP().then(data => {
       if (this.checkIP(data.ip)) {
-        this.router.navigate(['/sorry'], { replaceUrl: true });
+        console.log('womp womp');
       }
     });
     
@@ -46,6 +46,7 @@ export class PDNameComponent implements OnInit {
   }
   
   checkIP(playerIP) {
-    return playerIP === '000000';
+    console.log(playerIP);
+    return playerIP === '';
   }
 }
