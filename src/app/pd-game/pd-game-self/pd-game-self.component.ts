@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { GameService } from '../game.service';
+
 @Component({
   selector: 'pd-game-self',
   templateUrl: './pd-game-self.component.html',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PDGameSelfComponent implements OnInit {
 
-  constructor() { }
+  constructor(private gameService: GameService) { }
+  contrib: number = this.gameService.getSelfContrib();
+  choice: string = '';
+  feedbackSelf: string = this.gameService.getSelfFeedback();
 
   ngOnInit() {
   }
 
 }
+
+

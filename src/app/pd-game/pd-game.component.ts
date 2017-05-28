@@ -4,6 +4,7 @@ import { PDGameSelfComponent } from './pd-game-self/pd-game-self.component';
 import { PDGameOppComponent } from './pd-game-opp/pd-game-opp.component';
 
 import { Player } from '../players/player';
+
 import { PlayerService } from '../players/player.service';
 import { CurrentPlayerService } from '../players/current-player.service';
 import { GameService } from './game.service';
@@ -25,12 +26,13 @@ export class PDGameComponent implements OnInit {
   totalOppContrib: number[];
   condition: number = 1;
   pCoop: number = 0.2;
-  roundNumber: number=1;
+  roundNumber: number=0;
   submitted: boolean = false;
   population: number[];
 
   constructor(private playerService: PlayerService,
-              private curPlayerService: CurrentPlayerService) { }
+              private curPlayerService: CurrentPlayerService,
+              private gameService: GameService) { }
 
   ngOnInit() {
     this.population = this.setPopulation();
@@ -38,9 +40,15 @@ export class PDGameComponent implements OnInit {
   }
 
   playGame() {
-    this.roundNumber += 1; 
-    this.setContrib();
-    this.setOppContrib();
+      this.roundNumber += 1;
+      this.setOppContrib(); 
+      if (this.isSubmitted()) {
+        this.setContrib();
+        this.setPoints();
+        this.submitted = false;
+      } else {
+        this.choice = '';
+      }
   }
 
   setContrib() {
@@ -48,9 +56,10 @@ export class PDGameComponent implements OnInit {
       this.selfContrib = 20;
     } else if (this.choice === 'defect') {
       this.selfContrib = 0;
-    } else {
-      console.log('No answer');
-    }
+    } 
+    this.submitted = true;
+    this.gameService.addSelfContrib(this.selfContrib);
+    this.setPoints();
   }
 
   /* Samples from {1,0} with probability of selecting 1 equal to pCoop
@@ -63,8 +72,7 @@ export class PDGameComponent implements OnInit {
     } else if (oppChoice === 1) {
       this.oppContrib = 20;
     }
-
-    console.log('Opp contrib: ' +this.oppContrib);
+    this.gameService.addOppContrib(this.oppContrib);
   }
 
   setPopulation() {
@@ -76,6 +84,19 @@ export class PDGameComponent implements OnInit {
     return this.population;
   }
 
+  nextRound() {
+    this.submitted = false;
+    this.roundNumber += 1;
+    this.setOppContrib();
+  }
+
+  setPoints() {
+    this.totalPoints += this.gameService.getOppContrib()*2 - this.gameService.getSelfContrib();
+    if (this.totalPoints < 100) {
+      this.totalPoints = 100;
+    }
+  }
+
   isAnswered() {
     return this.choice ==='cooperate' || this.choice === 'defect';
   }
@@ -83,6 +104,4 @@ export class PDGameComponent implements OnInit {
   isSubmitted() {
     return this.submitted;
   }
-
-
 }
