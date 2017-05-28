@@ -7,10 +7,11 @@
 <h2>Total points: {{totalPoints}}    Round number: {{roundNumber}}</h2>
 
 <div class="self-contrib">
-  <form #f="ngForm" (ngSubmit)=saveContrib()>
+  <form #f="ngForm">
     <label>Would you like to cooperate or to defect?</label> <br>
-    <input type="radio" name="game-choice" [(ngModel)]="choice" value="true"> Cooperate <br>
-    <input type="radio" name="game-choice" [(ngModel)]="choice" value="false"> Defect <br>
+    <input type="radio" name="game-choice" [(ngModel)]="choice" value="cooperate"> Cooperate <br>
+    <input type="radio" name="game-choice" [(ngModel)]="choice" value="defect"> Defect <br>
+    <button type="button" [disabled]="!isAnswered()" [hidden]="isSubmitted()" (click)="setContrib()">Submit</button>
   </form>
 </div>
 

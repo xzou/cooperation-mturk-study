@@ -18,27 +18,71 @@ import { GameService } from './game.service';
 export class PDGameComponent implements OnInit {
 
   totalPoints: number = 100;
-  choice: boolean;
+  choice: string = '';
   selfContrib: number;
   oppContrib: number;
   totalSelfContrib: number[];
   totalOppContrib: number[];
   condition: number = 1;
-  pCoop1: number = 0.2;
-  pCoop2: number = 0.8;
+  pCoop: number = 0.2;
   roundNumber: number=1;
+  submitted: boolean = false;
+  population: number[];
 
   constructor(private playerService: PlayerService,
               private curPlayerService: CurrentPlayerService) { }
 
   ngOnInit() {
-    
+    this.population = this.setPopulation();
+    this.playGame();
   }
 
   playGame() {
-    for (var i=1; i<=80; i++) {
+    this.roundNumber += 1; 
+    this.setContrib();
+    this.setOppContrib();
+  }
 
+  setContrib() {
+    if (this.choice === 'cooperate') {
+      this.selfContrib = 20;
+    } else if (this.choice === 'defect') {
+      this.selfContrib = 0;
+    } else {
+      console.log('No answer');
     }
   }
+
+  /* Samples from {1,0} with probability of selecting 1 equal to pCoop
+   * and probability of selecting 0 equal to 1-pCoop */
+  setOppContrib() {
+    var idx = Math.floor(Math.random() * this.population.length);
+    var oppChoice = this.population[idx];
+    if (oppChoice === 0) {
+      this.oppContrib = 0;
+    } else if (oppChoice === 1) {
+      this.oppContrib = 20;
+    }
+
+    console.log('Opp contrib: ' +this.oppContrib);
+  }
+
+  setPopulation() {
+    if (this.pCoop === 0.2) {
+      this.population = [1,1,0,0,0,0,0,0,0,0];
+    } else if (this.pCoop === 0.8) {
+      this.population = [1,1,1,1,1,1,1,1,0,0];
+    } 
+    return this.population;
+  }
+
+  isAnswered() {
+    return this.choice ==='cooperate' || this.choice === 'defect';
+  }
+
+  isSubmitted() {
+    return this.submitted;
+  }
+
 
 }
