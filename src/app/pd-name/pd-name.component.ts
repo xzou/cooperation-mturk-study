@@ -8,7 +8,7 @@ import { PDIPService } from '../pd-ip.service';
   selector: 'pd-name',
   templateUrl: './pd-name.component.html',
   styleUrls: ['./pd-name.component.css'],
-  providers: [ CurrentPlayerService, PDIPService ]
+  providers: [ PDIPService ]
 })
 
 export class PDNameComponent implements OnInit {
@@ -20,14 +20,14 @@ export class PDNameComponent implements OnInit {
   firstName: string = '';
 
   ngOnInit() {
-    this.ipService.getIP().then(data => {
-      if (this.checkIP(data.ip)) {
-        console.log('womp womp');
-      }
-    });
-    
     if (this.isRevisited()) {
       this.router.navigate(['/end'], { replaceUrl: true } );
+    } else { 
+      this.ipService.getIP().then(data => {
+        if (this.checkIP(data.ip)) {
+          console.log('womp womp');
+        }
+      });
     }
   }
   
