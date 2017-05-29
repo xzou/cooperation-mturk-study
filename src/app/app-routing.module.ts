@@ -10,6 +10,7 @@ import { PDNameComponent } from './pd-name/pd-name.component';
 import { PDQuizEndComponent } from './pd-quiz-end/pd-quiz-end.component';
 import { PDForwardEndComponent } from './pd-forward-end/pd-forward-end.component';
 import { PDSorryComponent } from './pd-sorry/pd-sorry.component';
+import { PDMturkComponent } from './pd-mturk/pd-mturk.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path: '6',
     component: PDGameComponent
+  },
+  {
+    path: '7',
+    component: PDMturkComponent
   },
   {
     path: 'end',

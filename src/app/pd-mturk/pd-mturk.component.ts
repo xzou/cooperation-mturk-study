@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-pd-mturk',
+  selector: 'pd-mturk',
   templateUrl: './pd-mturk.component.html',
   styleUrls: ['./pd-mturk.component.css']
 })

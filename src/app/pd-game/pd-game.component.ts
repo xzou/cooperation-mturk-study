@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { PDGameSelfComponent } from './pd-game-self/pd-game-self.component';
 import { PDGameOppComponent } from './pd-game-opp/pd-game-opp.component';
@@ -16,7 +16,7 @@ import { GameService } from './game.service';
   providers: [ PlayerService, GameService ]
 })
 
-export class PDGameComponent implements OnInit {
+export class PDGameComponent implements OnInit, OnDestroy {
 
   constructor(private playerService: PlayerService,
               private curPlayerService: CurrentPlayerService,
@@ -28,6 +28,9 @@ export class PDGameComponent implements OnInit {
 
   startGame() {
     this.gameService.setPopulation(); 
+  }
+
+  ngOnDestroy() {
   }
 
 }
