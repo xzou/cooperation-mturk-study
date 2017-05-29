@@ -22,6 +22,7 @@ import { PDSorryComponent } from './pd-sorry/pd-sorry.component';
 import { PDGameSelfComponent } from './pd-game/pd-game-self/pd-game-self.component';
 import { PDGameOppComponent } from './pd-game/pd-game-opp/pd-game-opp.component';
 import { PDWaitingComponent } from './pd-game/pd-waiting/pd-waiting.component';
+import { PDMturkComponent } from './pd-mturk/pd-mturk.component';
 
 //import { CurrentPlayerService } from './players/current-player.service';
 
@@ -41,7 +42,8 @@ import { PDWaitingComponent } from './pd-game/pd-waiting/pd-waiting.component';
     PDSorryComponent,
     PDGameSelfComponent,
     PDGameOppComponent,
-    PDWaitingComponent
+    PDWaitingComponent,
+    PDMturkComponent
   ],
   imports: [
     BrowserModule,

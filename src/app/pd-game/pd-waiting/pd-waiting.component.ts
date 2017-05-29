@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
+import { GameService } from '../game.service';
+
 @Component({
-  selector: 'app-pd-waiting',
+  selector: 'pd-waiting',
   templateUrl: './pd-waiting.component.html',
   styleUrls: ['./pd-waiting.component.css']
 })
+
 export class PDWaitingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private gameService: GameService) { }
 
   ngOnInit() {
   }

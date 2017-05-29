@@ -4,26 +4,32 @@
   nothing.</p>
 </div>
 
-<h2>Total points: {{totalPoints}}    Round number: {{roundNumber}}</h2>
+<h2>Total points: {{this.gameService.totalPoints}}    Round number: {{this.gameService.roundNumber}}</h2>
 
 <div class="self-contrib">
   <form #f="ngForm">
     <label>Would you like to cooperate or to defect?</label> <br>
-    <input type="radio" name="game-choice" [(ngModel)]="choice" value="cooperate"> Cooperate <br>
-    <input type="radio" name="game-choice" [(ngModel)]="choice" value="defect"> Defect <br>
-    <button type="button" [disabled]="!isAnswered()" [hidden]="isSubmitted()" (click)="setContrib()">Submit</button>
-    <button type="button" [hidden]="showNextButton()" (click)="nextRound(); f.reset()">Next Round</button>
+    <input type="radio" name="game-choice" [(ngModel)]="this.gameService.choice" value="cooperate"> Cooperate <br>
+    <input type="radio" name="game-choice" [(ngModel)]="this.gameService.choice" value="defect"> Defect <br>
+    <button type="button" [disabled]="!this.gameService.isAnswered()" [hidden]="this.gameService.isSubmitted()" (click)="this.gameService.setContrib()">Submit</button>
+    <button type="button" [hidden]="this.gameService.showNextButton()" (click)="this.gameService.nextRound(); f.reset()">Next Round</button>
   </form>
 </div>
 
-<div class="game-over" [hidden]="!isGameOver()">
+<div class="self-panel" [hidden]="!this.gameService.isSubmitted()">
+  <pd-game-self></pd-game-self>
+</div>
+
+<div class="waiting-panel" [hidden]="!this.gameService.isWaiting()">
+  <pd-waiting></pd-waiting>
+</div>
+
+<div class="opp-panel" [hidden]="!this.gameService.isOppAnswered()">
+  <pd-game-opp></pd-game-opp>
+</div>
+
+<div class="game-over" [hidden]="!this.gameService.isGameOver()">
   <h4>Hooray game over goodbye</h4>
   <pd-nav-button url="4" label="Proceed"></pd-nav-button>
 </div>
 
-<div class="self-panel">
-  
-</div>
-
-<pd-game-self></pd-game-self>
-<pd-game-opp></pd-game-opp>
