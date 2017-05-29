@@ -53,6 +53,7 @@ export class PDGameComponent implements OnInit {
     } 
     this.submitted = true;
     this.gameService.addSelfContrib(this.selfContrib);
+    this.gameService.setFeedbackSelf();
     this.setPoints();
   }
 
@@ -103,9 +104,24 @@ export class PDGameComponent implements OnInit {
     } else if (this.condition === 2) {
         if (this.roundNumber === 20 || this.roundNumber === 60) {
           this.pCoop = this.pCoop2;
+          this.setPopulation();
         } else if(this.roundNumber === 40) {
           this.pCoop = this.pCoop1;
+          this.setPopulation();
         }
+    } else if (this.condition === 3) {
+      if (this.roundNumber === 10 || 
+          this.roundNumber === 30 ||
+          this.roundNumber === 50 ||
+          this.roundNumber === 70) {
+        this.pCoop = this.pCoop2;
+        this.setPopulation();
+      } else if (this.roundNumber === 20 ||
+                this.roundNumber === 40 ||
+                this.roundNumber === 60) {
+        this.pCoop = this.pCoop1;
+        this.setPopulation();
+      }
     }
   }
 

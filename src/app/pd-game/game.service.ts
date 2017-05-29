@@ -8,6 +8,9 @@ export class GameService {
   player: number[] = [];
   opponent: number[] = [];
   totalPoints: number;
+  feedbackSelf: string;
+
+
 
   getAllSelfContribs() {
     return this.player;
@@ -50,11 +53,11 @@ export class GameService {
     return choice;
   }
 
-  getSelfFeedback() {
+  setFeedbackSelf() {
     var choice = this.getChoice();
     var contrib: number = this.getSelfContrib();
-    var feedbackSelf = 'You chose to ' + choice + '. You contributed ' 
+    this.feedbackSelf = 'You chose to ' + choice + '. You contributed ' 
       + contrib + ' points to give your opponent ' + contrib*2 + ' points. ';
-    return feedbackSelf;
+    console.log(this.feedbackSelf);
   }
 }

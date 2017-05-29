@@ -10,9 +10,6 @@ import { GameService } from '../game.service';
 export class PDGameSelfComponent implements OnInit {
 
   constructor(private gameService: GameService) { }
-  contrib: number = this.gameService.getSelfContrib();
-  choice: string = '';
-  feedbackSelf: string = this.gameService.getSelfFeedback();
 
   ngOnInit() {
   }
