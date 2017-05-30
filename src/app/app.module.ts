@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { IonRangeSliderModule } from 'ng2-ion-range-slider';
 import 'rxjs/Rx';
 
 import { AppComponent } from './app.component';
@@ -53,8 +52,7 @@ import { PDProbabilitiesComponent } from './pd-game/pd-probabilities/pd-probabil
     FormsModule,
     HttpModule,
     JsonpModule,
-    AppRouterModule,
-    IonRangeSliderModule
+    AppRouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
