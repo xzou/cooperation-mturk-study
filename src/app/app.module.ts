@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { IonRangeSliderModule } from 'ng2-ion-range-slider';
 import 'rxjs/Rx';
 
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { PDGameSelfComponent } from './pd-game/pd-game-self/pd-game-self.compone
 import { PDGameOppComponent } from './pd-game/pd-game-opp/pd-game-opp.component';
 import { PDWaitingComponent } from './pd-game/pd-waiting/pd-waiting.component';
 import { PDMturkComponent } from './pd-mturk/pd-mturk.component';
+import { PDProbabilitiesComponent } from './pd-game/pd-probabilities/pd-probabilities.component';
 
 //import { CurrentPlayerService } from './players/current-player.service';
 
@@ -43,14 +45,16 @@ import { PDMturkComponent } from './pd-mturk/pd-mturk.component';
     PDGameSelfComponent,
     PDGameOppComponent,
     PDWaitingComponent,
-    PDMturkComponent
+    PDMturkComponent,
+    PDProbabilitiesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     JsonpModule,
-    AppRouterModule
+    AppRouterModule,
+    IonRangeSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

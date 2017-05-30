@@ -20,6 +20,11 @@
   <pd-game-self></pd-game-self>
 </div>
 
+<div class="probabilities-pane" [hidden]="!this.gameService.isSlider">
+  <p>What do you think is the probability that Kai will cooperate with you?</p>
+  <pd-probabilities></pd-probabilities>
+</div>
+
 <div class="waiting-panel" [hidden]="!this.gameService.isWaiting()">
   <pd-waiting></pd-waiting>
 </div>

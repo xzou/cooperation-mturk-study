@@ -24,6 +24,8 @@ export class GameService {
   submitted: boolean = false;
   oppAnswered: boolean = false;
   waiting: boolean = false;
+  probability: number = 0.5;
+  isSlider: boolean = false;
 
   setContrib() {
     if (this.choice === 'cooperate') {
@@ -33,7 +35,6 @@ export class GameService {
     } 
     this.submitted = true;
     this.addSelfContrib(this.selfContrib);
-    console.log('Self contribution: ', this.getSelfContrib());
     this.setFeedbackSelf();
     this.waiting = true;
     this.setOppMoved();
@@ -54,7 +55,6 @@ export class GameService {
     this.setFeedbackOpp();
     this.setTotalPoints();
     this.oppAnswered = true;
-    console.log('Opponent contribution: ', this.getOppContrib());
   }
 
   setOppMoved() {
@@ -86,6 +86,11 @@ export class GameService {
     this.roundNumber += 1;
     this.setPCoop();
     this.oppAnswered = false;
+    if (this.roundNumber % 5 === 0) {
+      this.isSlider = true;
+    } else {
+      this.isSlider = false;
+    }
   }
 
   getChoice(player: string) {
@@ -119,7 +124,6 @@ export class GameService {
         this.pCoop = this.pCoop2;
         this.setPopulation();
       }
-      console.log('Probability of cooperation: ', this.pCoop);
     } else if (this.condition === 2) {
         if (this.roundNumber === 20 || this.roundNumber === 60) {
           this.pCoop = this.pCoop2;
@@ -146,9 +150,6 @@ export class GameService {
   
   setTotalPoints() {
     var points = this.totalPoints;
-    console.log('Points: ', points);
-    console.log('getOppContrib: ', this.getOppContrib());
-    console.log('getSelfContrib: ', this.getSelfContrib());
 
     points += this.getOppContrib()*2 - this.getSelfContrib();
     if (points < 100) {
@@ -156,7 +157,6 @@ export class GameService {
     } else {
       this.totalPoints = points;
     }
-    console.log('Total points final: ', this.totalPoints);
   }
 
   getTotalPoints() {
@@ -204,5 +204,4 @@ export class GameService {
   isWaiting() {
     return this.waiting;
   }
-
 }
