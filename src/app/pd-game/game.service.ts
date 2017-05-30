@@ -11,6 +11,7 @@ export class GameService {
   selfContrib: number = 0;
   oppContrib: number = 0;
   totalPoints: number = 100;
+  oppTotalPoints: number = 100;
   feedbackSelf: string;
   feedbackOpp: string;
   oppMoved: boolean = false; 
@@ -53,7 +54,8 @@ export class GameService {
     this.addOppContrib(this.oppContrib);
     this.waiting = false;
     this.setFeedbackOpp();
-    this.setTotalPoints();
+    this.setTotalPoints('self');
+    this.setTotalPoints('opp');
     this.oppAnswered = true;
   }
 
@@ -86,7 +88,7 @@ export class GameService {
     this.roundNumber += 1;
     this.setPCoop();
     this.oppAnswered = false;
-    if (this.roundNumber % 5 === 0) {
+    if (this.roundNumber % 5 === 1) {
       this.isSlider = true;
     } else {
       this.isSlider = false;
@@ -148,15 +150,25 @@ export class GameService {
     }
   }
   
-  setTotalPoints() {
-    var points = this.totalPoints;
-
-    points += this.getOppContrib()*2 - this.getSelfContrib();
-    if (points < 100) {
-      this.totalPoints = 100;
-    } else {
-      this.totalPoints = points;
+  setTotalPoints(person) {
+    if (person === 'self') {
+      var points = this.totalPoints;
+      points += this.getOppContrib()*2 - this.getSelfContrib();
+      if (points < 100) {
+        this.totalPoints = 100;
+      } else {
+        this.totalPoints = points;
+      }
+    } else if (person === 'opp') {
+      var points = this.oppTotalPoints;
+      points += this.getSelfContrib()*2 - this.getOppContrib();
+      if (points < 100) {
+        this.oppTotalPoints = 100;
+      } else {
+        this.oppTotalPoints = points;
+      }
     }
+
   }
 
   getTotalPoints() {
