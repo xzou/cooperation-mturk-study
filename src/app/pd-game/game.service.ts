@@ -6,12 +6,13 @@ export class GameService {
   constructor() { }
 
   choice: string = '';
-  player: number[] = [];
-  opponent: number[] = [];
+  playerContribs: number[] = [];
+  oppContribs: number[] = [];
   selfContrib: number = 0;
   oppContrib: number = 0;
   totalPoints: number = 100;
   oppTotalPoints: number = 100;
+  probabilities: number[] = [];
   feedbackSelf: string;
   feedbackOpp: string;
   oppMoved: boolean = false; 
@@ -22,11 +23,14 @@ export class GameService {
   pCoop: number = this.pCoop1;
   condition: number = 1;
   roundNumber: number = 1;
+  maxRounds: number = 9;
+  firstSlider: number = 3;
   submitted: boolean = false;
   oppAnswered: boolean = false;
   waiting: boolean = false;
-  probability: number = 0.5;
   isSlider: boolean = false;
+  probability: number = 0.5;
+  sliderSubmitted: boolean = false;
 
   setContrib() {
     if (this.choice === 'cooperate') {
@@ -55,7 +59,7 @@ export class GameService {
     this.waiting = false;
     this.setFeedbackOpp();
     this.setTotalPoints('self');
-    this.setTotalPoints('opp');
+    this.setTotalPoints('opp')
     this.oppAnswered = true;
   }
 
@@ -68,31 +72,38 @@ export class GameService {
   }
 
   addSelfContrib(contrib: number) {
-    this.player.unshift(contrib);
+    this.playerContribs.unshift(contrib);
   }
 
   addOppContrib (contrib: number) {
-    this.opponent.unshift(contrib);
+    this.oppContribs.unshift(contrib);
+  }
+
+  addProbability () {
+    this.probabilities.unshift(this.probability);
+    this.sliderSubmitted = true;
+    console.log(this.getProbability());
+    console.log(this.probabilities);
   }
 
   getSelfContrib() {
-    return this.player[0];
+    return this.playerContribs[0];
   }
 
   getOppContrib() {
-    return this.opponent[0];
+    return this.oppContribs[0];
+  }
+
+  getProbability() {
+    return this.probabilities[0];
   }
 
   nextRound() {
     this.submitted = false;
-    this.roundNumber += 1;
     this.setPCoop();
     this.oppAnswered = false;
-    if (this.roundNumber % 5 === 1) {
-      this.isSlider = true;
-    } else {
-      this.isSlider = false;
-    }
+    this.setSlider();
+    this.roundNumber += 1;
   }
 
   getChoice(player: string) {
@@ -188,6 +199,16 @@ export class GameService {
     this.feedbackOpp = 'Kai chose to ' + choice + '. Kai contributed '
       + contrib + ' points to give you ' + contrib*2 + ' points.';
   }
+  
+  setSlider() {
+    if (this.roundNumber % this.firstSlider === 0) {
+      this.isSlider = true;
+      this.sliderSubmitted = false;
+    } 
+    else {
+      this.isSlider = false;
+    }
+  }
 
   isAnswered() {
     return this.choice ==='cooperate' || this.choice === 'defect';
@@ -202,18 +223,26 @@ export class GameService {
   }
 
   isGameOver() {
-    if (this.isSubmitted() && this.roundNumber === 10 && this.oppAnswered === true) {
+    if (this.isSubmitted() && this.roundNumber === this.maxRounds && this.oppAnswered && this.sliderSubmitted) {
       return true;
     } else {
       return false;
     }
   }
 
-  showNextButton() {
-    return !this.isSubmitted() || !this.isOppAnswered() || this.isGameOver();
+  hideQuestion() {
+    return this.showSlider() || this.sliderSubmitted;
   }
 
-  isWaiting() {
-    return this.waiting;
+  showNextButton() {
+    if (this.roundNumber % this.firstSlider === 0) {
+      return this.submitted && this.oppAnswered && this.sliderSubmitted && !this.isGameOver();
+    } else {
+      return this.submitted && this.oppAnswered && !this.isGameOver(); 
+    }
+  }
+  
+  showSlider() {
+    return this.roundNumber % this.firstSlider === 0 && this.submitted && this.oppAnswered && !this.sliderSubmitted;
   }
 }
