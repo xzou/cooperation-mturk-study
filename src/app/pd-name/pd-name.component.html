@@ -1,8 +1,11 @@
 <div class="name" [hidden]="isRevisited()">
-<form #f="ngForm" (ngSubmit)="setName()">
-  <label>Please enter your first name</label><br>
-  <input type="text" name="playerName" [(ngModel)]="firstName">
-  <button type="submit" [disabled]="!isValid()">Submit</button>
-</form>
+
+  <form #f="ngForm" (ngSubmit)="createPlayer()">
+    <input type="text" name="playerName" [(ngModel)]="firstName" placeholder="First name">
+    <input type="text" name="playerAge" [(ngModel)]="age" placeholder="Age">
+    <input type="radio" name="playerGender" [(ngModel)]="gender" value="female"> Female
+    <input type="radio" name="playerGender" [(ngModel)]="gender" value="male"> Male
+    <button type="submit" [disabled]="!isValid()">Submit</button>
+  </form>
 </div>
 

@@ -59,18 +59,23 @@ export class PDTestQuestionComponent {
     else 
       console.log('Invalid value of quiz answer');
 
-    this.savePlayer();
+    this.updatePlayer();
     }
 
   isSubmitted() {
     return this.is_submitted;
   }
 
-  savePlayer() {
-    var name: string = this.curPlayerService.getName();
-    var ip: string = this.curPlayerService.getIP();
-    var player = new Player(name, ip, this.is_correct);
-    this.playerService.addPlayer(player);
+  updatePlayer() {
+    var player = new Player();
+    console.log(player);
+    player.ip = this.curPlayerService.getIP();
+    player.name = this.curPlayerService.getName();
+    player.age = this.curPlayerService.getAge();
+    player.gender = this.curPlayerService.getGender();
+    player.is_correct = this.is_correct;
+    console.log(player);
+    this.playerService.updatePlayer(player);
   }
 
   ngOnDestroy () {
