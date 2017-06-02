@@ -1,11 +1,17 @@
-<div class="name" [hidden]="isRevisited()">
 
-  <form #f="ngForm" (ngSubmit)="createPlayer()">
-    <input type="text" name="playerName" [(ngModel)]="firstName" placeholder="First name">
-    <input type="text" name="playerAge" [(ngModel)]="age" placeholder="Age">
-    <input type="radio" name="playerGender" [(ngModel)]="gender" value="female"> Female
-    <input type="radio" name="playerGender" [(ngModel)]="gender" value="male"> Male
-    <button type="submit" [disabled]="!isValid()">Submit</button>
+<div id="player-info" [hidden]="isRevisited()">
+  <p class="type2-text">Please enter the following information</p>
+
+  <form #f="ngForm" (ngSubmit)="createPlayer()" autocomplete="off">
+    <input type="text" class="type2-text" name="playerName" [(ngModel)]="firstName" placeholder="First name"> <br>
+    <input type="text" class="type2-text" name="playerAge" [(ngModel)]="age" placeholder="Age"> <br> 
+    <div id="gender-select">
+      <input type="radio" id="choice-female" name="playerGender" [(ngModel)]="gender" value="female"> 
+      <label for="choice-female" class="type2-text">Female</label>
+      <input type="radio" id="choice-male" name="playerGender" [(ngModel)]="gender" value="male"> 
+      <label for="choice-male" class="type2-text">Male</label>
+    </div> <!-- div class="gender-select"-->
+    <button class="type2-text" type="submit" [disabled]="!isValid()">Submit</button>
   </form>
 </div>
 

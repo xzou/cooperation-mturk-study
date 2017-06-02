@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Neuton|Assistant|Poppins');
+
+.type1-text {
+  font-family: 'Neuton', serif;
+  color: #323232;
+}
+
+.type2-text {
+  font-family: 'Poppins', sans-serif;
+  color: #323232;
+}
