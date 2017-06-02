@@ -24,3 +24,16 @@ h2 {
 pd-nav-button {
   width: 400px;
 }
+
+.buttons {
+  padding-top: 15px;
+}
+
+.next-button {
+  float: right;
+}
+
+.back-button {
+  float: left;
+}
+
