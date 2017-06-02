@@ -1,12 +1,19 @@
-<h1>Welcome {{firstName}}</h1>
-<div class="intro">
-  In this study you will be playing a game with another player. 
-  The game is straightforward: your goal is to collect as many points as possible, as the 
-  number of points collected will correspond to your bonus payment at the end of the game.
-  Instructions for the game will now be presented to you. 
-  <strong>Please note: In order to proceed to the actual experiment you will need to answer 
-  basic questions about the game correctly to make sure you understand the rules of the game.
-  Failure to answer these questions correctly will prevent you from playing.</strong>
+<div class="type2-text" id="intro">
+  <h1>Welcome {{firstName}}!</h1>
+  <div id="intro-text">
+    In this study, you will be playing a game with another player. 
+    The game is straightforward: your goal is to collect as many points as possible, as the 
+    number of points collected will correspond to your bonus payment at the end of the game.
+    Instructions for the game will now be presented to you.
+  </div> <!-- div id="intro" -->
+  <div id="note">
+    <strong>Please note: </strong> In order to proceed to the actual experiment, you will need to answer 
+    basic questions about the game correctly to make sure you understand the rules of the game.
+    Failure to answer these questions correctly will prevent you from playing.
+  </div> <!-- div id="note" -->
+
+  <div id="nav-button">
+    <pd-nav-button url="2" label="Next"></pd-nav-button>
+  </div>
 </div> <!-- div class="intro" -->
 
-<pd-nav-button url="2" label="Next"></pd-nav-button>

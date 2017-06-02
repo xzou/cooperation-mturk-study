@@ -1,0 +1,14 @@
+#instructions {
+  width: 670px;
+  padding-left: 20%;
+}
+
+.next-button {
+  float: right;
+}
+
+.back-button {
+  float: left;
+}
+
+

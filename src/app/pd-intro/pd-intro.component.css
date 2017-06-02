@@ -1,0 +1,17 @@
+#intro {
+  width: 660px;
+  padding: 3% 0 0 18%;
+}
+
+h1 {
+  margin-bottom: 5px;
+  border-bottom: 1pt solid #909090;
+}
+
+#note {
+  padding: 10px 0 70px 0;
+}
+
+#nav-button {
+  float: right;
+}
