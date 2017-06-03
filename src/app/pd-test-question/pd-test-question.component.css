@@ -3,10 +3,19 @@
   padding: 3% 0 0 20%;
 }
 
+#warning {
+  border-bottom: 1px solid #909090;
+}
+
 #question {
   font-size: 25pt;
   line-height: 1.1;
   font-weight: 500;
+}
+
+#question p {
+  padding: 0;
+  margin: 20px 0 30px 0; 
 }
 
 label {
@@ -29,4 +38,5 @@ input:checked + label {
 button {
   margin-top: 0;
 }
+
 
