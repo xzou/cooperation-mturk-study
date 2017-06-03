@@ -1,4 +1,9 @@
-<div *ngIf="!isFound()" class="type2-text"><p>Finding opponent...</p></div>
+<div *ngIf="!isFound()" id="search-message" class="type2-text">
+  <p>Finding opponent
+  <span class="dot">.</span>
+  <span class="dot">.</span>
+  <span class="dot">.</span> </p>
+</div> <!-- div id="search-message" -->
 
 <div id="congrats" class="type2-text">
   <div *ngIf="isFound()">
