@@ -1,7 +1,7 @@
 <div id="game" class="type2-text">
   <div id="player-image">
     <img [src]="playerImagePath">
-    <h4>Spongebob</h4>
+    <h4>{{this.curPlayerService.getName()}}</h4>
     <div id="game-choice" [hidden]="this.gameService.hideQuestion()">
       <form #f="ngForm">
         <span id="question">Would you like to cooperate or to defect?</span> <br>
