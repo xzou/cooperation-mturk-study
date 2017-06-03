@@ -1,61 +1,77 @@
 <div id="game" class="type2-text">
-  <div id="player-image">
-    <img [src]="playerImagePath">
-    <h4>{{this.curPlayerService.getName()}}</h4>
-    <div id="game-choice" [hidden]="this.gameService.hideQuestion()">
-      <form #f="ngForm">
-        <span id="question">Would you like to cooperate or to defect?</span> <br>
-        <input type="radio" name="game-choice" id="cooperate" [(ngModel)]="this.gameService.choice" value="cooperate"><label for="cooperate">Cooperate</label> 
-        <input type="radio" name="game-choice" id="defect" [(ngModel)]="this.gameService.choice" value="defect"><label for="defect">Defect</label> 
-        <button type="button" id="submit-button" [disabled]="!this.gameService.isAnswered()" (click)="this.gameService.setContrib()">Submit
-        </button>
-      </form>
-    </div>
-  </div> <!-- div id="player-image" -->
-
-  <div id="middle-panel">
 
     <div id="game-status">
-      <h3>Total points: {{this.gameService.totalPoints}}</h3>
-      <h3>Round {{this.gameService.roundNumber}}</h3>
+      <div id="points-label">
+        <div id="points-label-text"><p>YOUR POINTS</p></div>
+      </div> <!-- div id="game-status" -->
+
+      <div id="round-label">
+        <div id="round-label-text"><p>ROUND</p></div>
+      </div> <!-- div id="round-label" -->
+
+      <div id="points">
+        <div id="points-text"><p>{{this.gameService.totalPoints}}</p></div>
+      </div> <!-- div id="points" -->
+
+      <div id="round">
+        <div id="round-text"><p>{{this.gameService.roundNumber}}</p></div>
+      </div> <!-- div id="round" -->
+
     </div> <!-- div id="game-status" -->
 
-    <div id="feedback" [hidden]="this.gameService.hideFeedback()">
-      <div id="self-panel" [hidden]="!this.gameService.submitted">
-        <pd-game-self></pd-game-self>
-      </div> <!-- div id="self-pane" -->
+  <div id="panels">
+    <div id="player-image">
+      <img [src]="playerImagePath">
+      <h4>{{this.curPlayerService.getName()}}</h4>
+    </div> <!-- div id="player-image" -->
 
-      <div id="opp-panel" >
-        <div id="waiting-panel" [hidden]="!this.gameService.waiting">
-          <pd-waiting></pd-waiting>
-        </div>
-        <div id="opp-feedback"[hidden]="!this.gameService.isOppAnswered()">
-          <pd-game-opp></pd-game-opp>
-        </div> <!-- div id="opp-feedback" -->
-      </div> <!-- div id="opp-panel"-->
+    <div id="middle-panel">
+      <div id="game-choice" [hidden]="this.gameService.hideQuestion()">
+        <form #f="ngForm">
+          <span id="question">Would you like to cooperate or to defect?</span> <br>
+          <input type="radio" name="game-choice" id="cooperate" [(ngModel)]="this.gameService.choice" value="cooperate"><label for="cooperate">Cooperate</label> 
+          <input type="radio" name="game-choice" id="defect" [(ngModel)]="this.gameService.choice" value="defect"><label for="defect">Defect</label> 
+          <button type="button" id="submit-button" [disabled]="!this.gameService.isAnswered()" (click)="this.gameService.setContrib()">Submit
+          </button>
+        </form>
+      </div> <!-- div id="game-choice" -->
 
-      <button type="button" id="next-round-button"[hidden]="!this.gameService.showNextButton()" (click)="this.gameService.nextRound(); f.reset()">
-        Next Round
-      </button>
-    </div> <!-- div id="feedback" -->
+      <div id="feedback" [hidden]="this.gameService.hideFeedback()">
+        <div id="self-panel" [hidden]="!this.gameService.submitted">
+          <pd-game-self></pd-game-self>
+        </div> <!-- div id="self-pane" -->
 
-    <div id="probabilities-panel" [hidden]="!this.gameService.showSlider()">
-      <p>What do you think is the probability that Kai will cooperate with you?</p>
-      <pd-probabilities></pd-probabilities>
+        <div id="opp-panel" >
+          <div id="waiting-panel" [hidden]="!this.gameService.waiting">
+            <pd-waiting></pd-waiting>
+          </div>
+          <div id="opp-feedback"[hidden]="!this.gameService.isOppAnswered()">
+            <pd-game-opp></pd-game-opp>
+          </div> <!-- div id="opp-feedback" -->
+        </div> <!-- div id="opp-panel"-->
+
+        <button type="button" id="next-round-button"[hidden]="!this.gameService.showNextButton()" (click)="this.gameService.nextRound(); f.reset()">
+          Next Round
+        </button>
+      </div> <!-- div id="feedback" -->
+
+      <div id="probabilities-panel" [hidden]="!this.gameService.showSlider()">
+        <p>What do you think is the probability that Kai will cooperate with you?</p>
+        <pd-probabilities></pd-probabilities>
+      </div>
+
+
+      <div class="game-over" [hidden]="!this.gameService.isGameOver()">
+        <h4>Hooray game over goodbye</h4>
+        <pd-nav-button url="7" label="Proceed"></pd-nav-button>
+      </div>
+
+    </div> <!-- div id="middle-panel" -->
+
+    <div id="opp-image">
+      <img [src]="oppImagePath">
+      <h4>Kai</h4>
     </div>
-
-
-    <div class="game-over" [hidden]="!this.gameService.isGameOver()">
-      <h4>Hooray game over goodbye</h4>
-      <pd-nav-button url="7" label="Proceed"></pd-nav-button>
-    </div>
-
-  </div> <!-- div id="middle-panel" -->
-
-  <div id="opp-image">
-    <img [src]="oppImagePath">
-    <h4>Kai</h4>
-  </div>
-
+  <!-- div id="panels" --> 
 </div> <!-- div id="game" -->
 

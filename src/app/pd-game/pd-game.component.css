@@ -1,10 +1,18 @@
-#game {
-  width: auto;
-  padding: 2% 0 0 10%;
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-#question {
-  font-size: 15pt;
+#game {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#panels {
+  width: 100%;
+  height: 500px;
 }
 
 button {
@@ -58,24 +66,112 @@ h4 {
 }
 
 #game-status {
-  padding-bottom: 100px;
+  padding: 15px 0 150px 0;
+  width: 160px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#points-label {
+  width: 100px;
+  height: 35px;
+  float: left;
+  background-color: #555;
+  text-align: center;
+}
+
+#round-label {
+  margin: 0 0 0 0;
+  width: 60px;
+  height: 35px;
+  float: left;
+  text-align: center;
+  background-color: #555;;
+  font-size: 9pt;
+  color: white;
+}
+
+
+#points-label p,
+#round-label p{
+  font-size: 9pt;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+#points-label-text,
+#round-label-text,
+#points-text,
+#round-text {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#points {
+  width: 100px;
+  height: 60px;
+  float: left;
+  background-color: #24c3ad;
+  text-align: center;
+  position: relative;
+  top: 50%;
+}
+
+#points p,
+#round p {
+  margin: 0;
+  padding: 0;
+  font-size: 35pt;
+  color: white;
+}
+
+#round {
+  width: 60px;
+  height: 60px;
+  float: left;
+  text-align: center;
+  background-color: #909090;
+}
+
+#player-image,
+#opp-image,
+#middle-panel {
+  padding: 0;
+  width: 35%;
+}
+
+#player-image,
+#opp-image {
+  text-align: center;
 }
 
 #player-image {
-  width: 380px;
   float: left;
-  padding-top: 150px;
 }
 
 #opp-image {
-  width: 300px;
   float: left;
-  padding-top: 150px;
-  margin-left: 120px;
+}
+
+#opp-image img,
+#player-image img {
+  display: inline-block;
 }
 
 #middle-panel {
-  width: 400px;
   float: left;
+  width: 30%;
+}
+
+#game-choice {
+  width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#question {
+  font-size: 16pt;
 }
 

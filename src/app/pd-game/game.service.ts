@@ -82,7 +82,6 @@ export class GameService {
   addProbability () {
     this.probabilities.unshift(this.probability);
     this.sliderSubmitted = true;
-    this.nextRound();
     console.log(this.getProbability());
     console.log(this.probabilities);
   }
