@@ -1,18 +1,21 @@
-<div>
-  <p><strong>You must answer this question correctly to play the game.</strong></p>
-</div>
-<div class="question">
-  <p>Quiz: What does it mean to cooperate and to defect?</p>
-</div> <!-- div class="question" -->
+<div id="quiz" class="type2-text">
+  <h2>Quiz</h2>
+  <div>
+    <p><strong>You must answer this question correctly to play the game.</strong></p>
+  </div>
+  <div id="question">
+    <p>What does it mean to cooperate and to defect?</p>
+  </div> <!-- div class="question" -->
 
-<form #f="ngForm" (ngSubmit)="checkAnswer()">
-  <input type="radio" name="quizAnswer" [(ngModel)]="selectedOption" value="1"><label>{{ choiceAText }}</label> <br>
-  <input type="radio" name="quizAnswer" [(ngModel)]="selectedOption" value="2"><label>{{ choiceBText }}</label> <br>
-  <button type="submit" [disabled]="!isAnswered()" [hidden]="isSubmitted()">Submit</button>
-</form>
+  <form #f="ngForm" (ngSubmit)="checkAnswer()">
+    <input type="radio" name="quizAnswer" id="option1" [(ngModel)]="selectedOption" value="1"><label for="option1">{{ choiceAText }}</label> <br>
+    <input type="radio" name="quizAnswer" id="option2" [(ngModel)]="selectedOption" value="2"><label for="option2">{{ choiceBText }}</label> <br>
+    <button type="submit" [disabled]="!isAnswered()" [hidden]="isSubmitted()">Submit</button>
+  </form>
 
-{{ feedback }}
+  {{ feedback }}
 
-<div *ngIf="is_correct == true">
-    <pd-nav-button url="5" label="Next"></pd-nav-button>
-</div>
+  <div *ngIf="is_correct == true">
+      <pd-nav-button url="5" label="Next"></pd-nav-button>
+  </div>
+</div> <!-- div class="type2-text" -->

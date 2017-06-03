@@ -82,6 +82,7 @@ export class GameService {
   addProbability () {
     this.probabilities.unshift(this.probability);
     this.sliderSubmitted = true;
+    this.nextRound();
     console.log(this.getProbability());
     console.log(this.probabilities);
   }
@@ -218,12 +219,8 @@ export class GameService {
     return this.oppAnswered;
   }
 
-  isSubmitted() {
-    return this.submitted;
-  }
-
   isGameOver() {
-    if (this.isSubmitted() && this.roundNumber === this.maxRounds && this.oppAnswered && this.sliderSubmitted) {
+    if (this.submitted && this.roundNumber === this.maxRounds && this.oppAnswered && this.sliderSubmitted) {
       return true;
     } else {
       return false;
@@ -231,6 +228,10 @@ export class GameService {
   }
 
   hideQuestion() {
+    return this.showSlider() || this.sliderSubmitted || this.submitted;
+  }
+
+  hideFeedback() {
     return this.showSlider() || this.sliderSubmitted;
   }
 

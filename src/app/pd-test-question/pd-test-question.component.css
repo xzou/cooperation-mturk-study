@@ -1,0 +1,32 @@
+#quiz {
+  width: 630px;
+  padding: 3% 0 0 20%;
+}
+
+#question {
+  font-size: 25pt;
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+label {
+  display: block;
+  width: 550px;
+  height: 100px;
+  margin-top: -20px;
+  font-size: 14pt;
+}
+
+label:hover, label:active, input:hover+label, input:active+label {
+  color: #9c9c9c;
+  cursor: crosshair;
+}
+
+input:checked + label {
+  color: #24c3ad;
+}
+
+button {
+  margin-top: 0;
+}
+

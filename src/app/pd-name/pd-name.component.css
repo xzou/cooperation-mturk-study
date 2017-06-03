@@ -10,14 +10,11 @@ p {
   font-weight: 900;
 }
 
-input {
+input[type='text'] {
   border: 0;
   outline: 0;
   background: transparent;
   border-bottom: 1px solid #9c9c9c;
-}
-
-input[type='text'] {
   width: 300px;
   height: 30px;
   font-size: 25pt;
@@ -36,16 +33,12 @@ input[type='text']:focus {
 
 label {
   display: inline-block;
-  width: 70px;
+  width: 90px;
   height: 25px;
   font-size: 15pt;
   margin-right: 30px;
   padding-bottom: 3px;
   border-bottom: 2pt solid transparent;
-}
-
-input[type="radio"] {
-  display: none;
 }
 
 label:hover, label:active, input:hover+label, input:active+label {
@@ -55,33 +48,5 @@ label:hover, label:active, input:hover+label, input:active+label {
 
 input:checked + label {
   border-bottom: 2pt solid #24c3ad; 
-}
-
-button {
-  background-color: white;
-  border: 2px solid #666;
-  margin-top: 20px;
-  width: 140px;
-  height: 45px;
-  font-size: 12pt;
-  text-transform: uppercase;
-  font-weight: 500;
-  box-shadow: inset 0 0 0 0 #31302b;
-  -webkit-transition: all ease 0.8s;
-  -moz-transition: all ease 0.8s;
-  transition: all ease 0.8s;
-}
-
-button:disabled,
-button[disabled] {
-  color: #808080;
-  background-color: white;
-}
-
-button:hover:enabled {
-  color: white;
-  border-color: #24c3ad;
-  cursor: crosshair;
-  box-shadow: inset 140px 0 0 0 #24c3ad;
 }
 

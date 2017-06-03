@@ -1,44 +1,61 @@
-<div class="game-instructions">
-  <p>Remember: during this game, you may either cooperate by contributing 20
-  points so that your opponent receives 40 points, or defect by contributing
-  nothing.</p>
-</div>
+<div id="game" class="type2-text">
+  <div id="player-image">
+    <img [src]="playerImagePath">
+    <h4>Spongebob</h4>
+    <div id="game-choice" [hidden]="this.gameService.hideQuestion()">
+      <form #f="ngForm">
+        <span id="question">Would you like to cooperate or to defect?</span> <br>
+        <input type="radio" name="game-choice" id="cooperate" [(ngModel)]="this.gameService.choice" value="cooperate"><label for="cooperate">Cooperate</label> 
+        <input type="radio" name="game-choice" id="defect" [(ngModel)]="this.gameService.choice" value="defect"><label for="defect">Defect</label> 
+        <button type="button" id="submit-button" [disabled]="!this.gameService.isAnswered()" (click)="this.gameService.setContrib()">Submit
+        </button>
+      </form>
+    </div>
+  </div> <!-- div id="player-image" -->
 
-<h2>Total points: {{this.gameService.totalPoints}} &nbsp; &nbsp; Round number: {{this.gameService.roundNumber}}</h2>
+  <div id="middle-panel">
 
-<div class="game-choice" [hidden]="this.gameService.hideQuestion()">
-  <form #f="ngForm">
-    <label>Would you like to cooperate or to defect?</label> <br>
-    <input type="radio" name="game-choice" [(ngModel)]="this.gameService.choice" value="cooperate"> Cooperate <br>
-    <input type="radio" name="game-choice" [(ngModel)]="this.gameService.choice" value="defect"> Defect <br>
-    <button type="button" [disabled]="!this.gameService.isAnswered()" [hidden]="this.gameService.isSubmitted()" (click)="this.gameService.setContrib()">Submit</button>
-  </form>
-</div>
+    <div id="game-status">
+      <h3>Total points: {{this.gameService.totalPoints}}</h3>
+      <h3>Round {{this.gameService.roundNumber}}</h3>
+    </div> <!-- div id="game-status" -->
 
-<button type="button" [hidden]="!this.gameService.showNextButton()" (click)="this.gameService.nextRound(); f.reset()">Next Round</button>
+    <div id="feedback" [hidden]="this.gameService.hideFeedback()">
+      <div id="self-panel" [hidden]="!this.gameService.submitted">
+        <pd-game-self></pd-game-self>
+      </div> <!-- div id="self-pane" -->
 
-<div class="feedback-panel">
-  <div class="self-panel" [hidden]="!this.gameService.isSubmitted()">
-    <pd-game-self></pd-game-self>
+      <div id="opp-panel" >
+        <div id="waiting-panel" [hidden]="!this.gameService.waiting">
+          <pd-waiting></pd-waiting>
+        </div>
+        <div id="opp-feedback"[hidden]="!this.gameService.isOppAnswered()">
+          <pd-game-opp></pd-game-opp>
+        </div> <!-- div id="opp-feedback" -->
+      </div> <!-- div id="opp-panel"-->
+
+      <button type="button" id="next-round-button"[hidden]="!this.gameService.showNextButton()" (click)="this.gameService.nextRound(); f.reset()">
+        Next Round
+      </button>
+    </div> <!-- div id="feedback" -->
+
+    <div id="probabilities-panel" [hidden]="!this.gameService.showSlider()">
+      <p>What do you think is the probability that Kai will cooperate with you?</p>
+      <pd-probabilities></pd-probabilities>
+    </div>
+
+
+    <div class="game-over" [hidden]="!this.gameService.isGameOver()">
+      <h4>Hooray game over goodbye</h4>
+      <pd-nav-button url="7" label="Proceed"></pd-nav-button>
+    </div>
+
+  </div> <!-- div id="middle-panel" -->
+
+  <div id="opp-image">
+    <img [src]="oppImagePath">
+    <h4>Kai</h4>
   </div>
 
-  <div class="waiting-panel" [hidden]="!this.gameService.waiting">
-    <pd-waiting></pd-waiting>
-  </div>
-</div> <!-- div class="choice-panel"-->
-
-  <div class="opp-panel" [hidden]="!this.gameService.isOppAnswered()">
-    <pd-game-opp></pd-game-opp>
-  </div>
-
-<div class="probabilities-pane" [hidden]="!this.gameService.showSlider()">
-  <p>What do you think is the probability that Kai will cooperate with you?</p>
-  <pd-probabilities></pd-probabilities>
-</div>
-
-
-<div class="game-over" [hidden]="!this.gameService.isGameOver()">
-  <h4>Hooray game over goodbye</h4>
-  <pd-nav-button url="7" label="Proceed"></pd-nav-button>
-</div>
+</div> <!-- div id="game" -->
 

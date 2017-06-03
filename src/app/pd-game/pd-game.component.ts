@@ -17,10 +17,15 @@ import { GameService } from './game.service';
 })
 
 export class PDGameComponent implements OnInit, OnDestroy {
+  playerImagePath: string;
+  oppImagePath: string;
 
   constructor(private playerService: PlayerService,
               private curPlayerService: CurrentPlayerService,
-              private gameService: GameService) { }
+              private gameService: GameService) {
+    this.playerImagePath = '/assets/images/self.png';
+    this.oppImagePath = '/assets/images/opp.png';
+  }
 
   ngOnInit() {
     this.startGame();
