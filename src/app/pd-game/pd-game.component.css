@@ -48,7 +48,7 @@ label {
 }
 
 img {
-  width: 200px;
+  width: 240px;
   height: auto;
 }
 
@@ -67,13 +67,13 @@ h4 {
 
 #game-status {
   padding: 15px 0 150px 0;
-  width: 160px;
+  width: 180px;
   margin-left: auto;
   margin-right: auto;
 }
 
 #points-label {
-  width: 100px;
+  width: 110px;
   height: 35px;
   float: left;
   background-color: #555;
@@ -82,7 +82,7 @@ h4 {
 
 #round-label {
   margin: 0 0 0 0;
-  width: 60px;
+  width: 70px;
   height: 35px;
   float: left;
   text-align: center;
@@ -110,8 +110,8 @@ h4 {
 }
 
 #points {
-  width: 100px;
-  height: 60px;
+  width: 110px;
+  height: 70px;
   float: left;
   background-color: #24c3ad;
   text-align: center;
@@ -123,13 +123,14 @@ h4 {
 #round p {
   margin: 0;
   padding: 0;
-  font-size: 35pt;
+  font-size: 43pt;
   color: white;
+  font-weight: 200;
 }
 
 #round {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   float: left;
   text-align: center;
   background-color: #909090;

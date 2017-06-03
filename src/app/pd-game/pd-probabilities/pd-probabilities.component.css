@@ -7,6 +7,14 @@ button {
   font-weight: 300;
 }
 
+#prob-indicator {
+  width: 40px;
+  height: 35px;
+  text-align: center;
+  margin: auto;
+}
+
+
 #probabilities {
   display: block;
 }
@@ -68,3 +76,4 @@ input[type=range]:-moz-focusring{
 input[type=range]:focus::-moz-range-track {
     background: #ccc;
 }
+
