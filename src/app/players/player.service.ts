@@ -23,11 +23,6 @@ export class PlayerService {
       .catch(this.handleError);
   }
 
-  getPlayer(id: string): Promise<Player> {
-    return this.getPlayers()
-          .then(players => players.find(player => player._id === id));
-  }
-
   addPlayer(player: Player): Observable<Player> {
     const headers = new Headers({
       'Content-Type': 'application/json'

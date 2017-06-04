@@ -36,6 +36,30 @@ export class PDGameComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    var updPlayer: Player = {
+      _id: this.curPlayerService.player._id,
+      ip: this.curPlayerService.player.ip,
+      name: this.curPlayerService.player.name,
+      age: this.curPlayerService.player.age,
+      gender: this.curPlayerService.player.gender,
+      mturk_code: this.curPlayerService.player.mturk_code,
+      is_correct: this.curPlayerService.player.is_correct,
+      contributions: this.gameService.playerContribs,
+      opp_contributions: this.gameService.oppContribs,
+      probabilities: this.gameService.probabilities,
+      player_score: this.gameService.totalPoints,
+      opp_score: this.gameService.oppTotalPoints
+    }
+  
+    this.playerService.updatePlayer(updPlayer)
+        .subscribe (data => {
+          this.curPlayerService.player.contributions = this.gameService.playerContribs;
+          this.curPlayerService.player.opp_contributions = this.gameService.oppContribs;
+          this.curPlayerService.player.probabilities = this.gameService.probabilities;
+          this.curPlayerService.player.player_score = this.gameService.totalPoints;
+          this.curPlayerService.player.opp_score = this.gameService.oppTotalPoints;
+        });
+    
   }
 
 }

@@ -74,15 +74,23 @@ export class GameService {
   }
 
   addSelfContrib(contrib: number) {
-    this.playerContribs.unshift(contrib);
+    this.playerContribs.push(contrib);
   }
 
   addOppContrib (contrib: number) {
-    this.oppContribs.unshift(contrib);
+    this.oppContribs.push(contrib);
+  }
+
+  getSelfContrib() {
+    return this.playerContribs[this.playerContribs.length-1];
+  }
+
+  getOppContrib() {
+    return this.oppContribs[this.oppContribs.length-1];
   }
 
   addProbability () {
-    this.probabilities.unshift(this.probability);
+    this.probabilities.push(this.probability);
     this.sliderSubmitted = true;
     this.sliderToggle = true;
     if (this.roundNumber === this.maxRounds) {
@@ -90,14 +98,6 @@ export class GameService {
     } else {
       this.nextRound();
     }
-  }
-
-  getSelfContrib() {
-    return this.playerContribs[0];
-  }
-
-  getOppContrib() {
-    return this.oppContribs[0];
   }
 
   getProbability() {
@@ -235,12 +235,6 @@ export class GameService {
   }
 
   showNextButton() {
-    /*if (this.roundNumber % this.firstSlider === 0) {
-      return this.submitted && this.oppAnswered && this.sliderSubmitted && !this.isGameOver();
-    } else {
-      return this.submitted && this.oppAnswered && !this.isGameOver(); 
-    } */
-
     return this.submitted && this.oppAnswered && !this.isGameOver(); 
   }
 

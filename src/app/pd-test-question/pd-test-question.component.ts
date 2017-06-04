@@ -73,11 +73,12 @@ export class PDTestQuestionComponent {
       name: this.curPlayerService.player.name,
       age: this.curPlayerService.player.age,
       gender: this.curPlayerService.player.gender,
+      mturk_code: this.curPlayerService.player.mturk_code,
       is_correct: this.is_correct,
     }
     this.playerService.updatePlayer(updPlayer)
         .subscribe(data => {
-          this.curPlayerService.saveQuizAnswer(this.is_correct);
+          this.curPlayerService.player.is_correct = this.is_correct;
         });
   }
 
