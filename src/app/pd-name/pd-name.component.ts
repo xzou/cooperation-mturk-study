@@ -37,19 +37,21 @@ export class PDNameComponent implements OnInit {
         }
       });
     }
-    console.log(this.age);
   }
   
   createPlayer() {
-    this.curPlayerService.saveName(this.firstName);
-    this.curPlayerService.saveAge(this.age);
-    this.curPlayerService.saveGender(this.gender);
-    this.curPlayerService.saveIP(this.ip);
+    var newPlayer = new Player(this.ip, this.firstName, this.age, this.gender);
+    this.playerService.addPlayer(newPlayer)
+        .subscribe(player => {
+          this.curPlayerService.player._id = player._id;
+          this.curPlayerService.player.ip = player.ip;
+          this.curPlayerService.player.name = player.name;
+          this.curPlayerService.player.age = player.age;
+          this.curPlayerService.player.gender = player.gender;
+          this.curPlayerService.player.mturk_code = player.mturk_code;
 
-    var player = new Player(this.ip, this.firstName, this.age, this.gender);
-    console.log(player);
-    this.playerService.addPlayer(player);
-    this.router.navigateByUrl('/1');
+          this.router.navigateByUrl('/1');
+        });
   }
 
   isValid() {
@@ -63,7 +65,6 @@ export class PDNameComponent implements OnInit {
  
   // Check whether player IP is already in the database
   checkIP(playerIP) {
-    console.log(playerIP);
     return playerIP === '';
   }
 }

@@ -1,46 +1,57 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Headers, Http, Response } from '@angular/http';
+
 import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs/Rx';
 
 import { Player } from './player';
 
 
 @Injectable()
 export class PlayerService {
-  private playersUrl = '/api/players';
+  private playersUrl = 'api/players';
 
   constructor(private http: Http) { }
 
-  // GET ('/api/players')
-  getPlayers(): Promise<Player[]> {
-    return this.http.get(this.playersUrl)
-                .toPromise()
-                .then(response => response.json() as Player[])
-                .catch(this.handleError);
+  getPlayers(): Promise<Array<Player>> {
+    return this.http
+      .get(this.playersUrl)
+      .toPromise()
+      .then((response) => {
+        return response.json().data as Player[];
+      })
+      .catch(this.handleError);
   }
 
-  // POST ('/api/players')
-  addPlayer(newPlayer: Player): Promise<Player> {
-    return this.http.post(this.playersUrl, newPlayer)
-                .toPromise()
-                .then(response => response.json() as Player)
-                .catch(this.handleError);
+  getPlayer(id: string): Promise<Player> {
+    return this.getPlayers()
+          .then(players => players.find(player => player._id === id));
   }
 
-  // PUT ('/api/players/:id')
-  updatePlayer(player: Player): Promise<Player> {
-    var putUrl = this.playersUrl + '/' + player._id;
-    return this.http.put(putUrl, player)
-                .toPromise()
-                .then(response => response.json() as Player)
-                .catch(this.handleError);
+  addPlayer(player: Player): Observable<Player> {
+    const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http
+          .post(this.playersUrl, JSON.stringify(player), { headers: headers })
+          .map(res => res.json())
+          .catch(this.handleError);
   }
 
-  private handleError (error: any) {
-    let errMsg = (error.message) ? error.message:
-      error.status ? `${error.status} - ${error.statusText}` :
-      'Server error happening';
-    console.log(errMsg);
+  updatePlayer(player: Player): Observable<Player> {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http
+            .put(this.playersUrl+'/'+player._id, JSON.stringify(player), { headers: headers }) 
+            .map(res => res.json())
+            .catch(this.handleError);
   }
 
+  private handleError(error: any): Promise<any> {
+    console.error('An error occured', error);
+    return Promise.reject(error.message || error);
+  }
 }
+

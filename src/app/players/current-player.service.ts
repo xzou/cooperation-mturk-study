@@ -8,6 +8,7 @@ export class CurrentPlayerService {
   constructor() { }
 
   player: Player = {
+    _id: '',
     ip: '',
     name: '',
     age: 0,
@@ -22,6 +23,14 @@ export class CurrentPlayerService {
     opp_score: 0,
     mturk_code: ''
   };
+
+  getPlayer() {
+    return this.player;
+  }
+
+  saveID(id: string) {
+    this.player._id = id;
+  }
 
   saveIP(ip: string) {
     this.player.ip = ip;
@@ -90,12 +99,4 @@ export class CurrentPlayerService {
   saveOppScore(score: number) {
     this.player.opp_score = score;
   }
-  
-
-  
- 
-
-
-  
-
 }

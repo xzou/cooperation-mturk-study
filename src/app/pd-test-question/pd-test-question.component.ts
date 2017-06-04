@@ -67,15 +67,18 @@ export class PDTestQuestionComponent {
   }
 
   updatePlayer() {
-    var player = new Player();
-    console.log(player);
-    player.ip = this.curPlayerService.getIP();
-    player.name = this.curPlayerService.getName();
-    player.age = this.curPlayerService.getAge();
-    player.gender = this.curPlayerService.getGender();
-    player.is_correct = this.is_correct;
-    console.log(player);
-    this.playerService.updatePlayer(player);
+    var updPlayer: Player = {
+      _id: this.curPlayerService.player._id,
+      ip: this.curPlayerService.player.ip,
+      name: this.curPlayerService.player.name,
+      age: this.curPlayerService.player.age,
+      gender: this.curPlayerService.player.gender,
+      is_correct: this.is_correct,
+    }
+    this.playerService.updatePlayer(updPlayer)
+        .subscribe(data => {
+          this.curPlayerService.saveQuizAnswer(this.is_correct);
+        });
   }
 
   ngOnDestroy () {
