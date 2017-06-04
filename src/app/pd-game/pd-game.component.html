@@ -28,7 +28,7 @@
     <div id="middle-panel">
       <div id="game-choice" [hidden]="this.gameService.hideQuestion()">
         <form #f="ngForm">
-          <span id="question">Would you like to cooperate or to defect?</span> <br>
+          <div id="question">Would you like to cooperate or to defect?</div> <br>
           <input type="radio" name="game-choice" id="cooperate" [(ngModel)]="this.gameService.choice" value="cooperate"><label for="cooperate">Cooperate</label> 
           <input type="radio" name="game-choice" id="defect" [(ngModel)]="this.gameService.choice" value="defect"><label for="defect">Defect</label> 
           <button type="button" id="submit-button" [disabled]="!this.gameService.isAnswered()" (click)="this.gameService.setContrib()">Submit
@@ -50,7 +50,7 @@
           </div> <!-- div id="opp-feedback" -->
         </div> <!-- div id="opp-panel"-->
 
-        <button type="button" id="next-round-button"[hidden]="!this.gameService.showNextButton()" (click)="this.gameService.nextRound(); f.reset()">
+        <button type="button" id="next-round-button" [hidden]="!this.gameService.showNextButton()" (click)="this.gameService.nextRound(); f.reset()">
           Next Round
         </button>
       </div> <!-- div id="feedback" -->
@@ -61,8 +61,8 @@
       </div>
 
 
-      <div class="game-over" [hidden]="!this.gameService.isGameOver()">
-        <h4>Hooray game over goodbye</h4>
+      <div id="game-over" *ngIf="this.gameService.gameOver">
+        <h4>Congratulations! You have completed the game and have earned a total of {{this.gameService.totalPoints}} points.</h4>
         <pd-nav-button url="7" label="Proceed"></pd-nav-button>
       </div>
 

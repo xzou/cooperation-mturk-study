@@ -5,6 +5,8 @@ export class GameService {
 
   constructor() { }
 
+  maxRounds: number = 4;
+  firstSlider: number = 2;
   choice: string = '';
   playerContribs: number[] = [];
   oppContribs: number[] = [];
@@ -23,14 +25,14 @@ export class GameService {
   pCoop: number = this.pCoop1;
   condition: number = 1;
   roundNumber: number = 1;
-  maxRounds: number = 9;
-  firstSlider: number = 3;
   submitted: boolean = false;
   oppAnswered: boolean = false;
   waiting: boolean = false;
   isSlider: boolean = false;
   probability: number = 0.5;
   sliderSubmitted: boolean = false;
+  sliderToggle: boolean = false;
+  gameOver: boolean = false;
 
   setContrib() {
     if (this.choice === 'cooperate') {
@@ -82,8 +84,12 @@ export class GameService {
   addProbability () {
     this.probabilities.unshift(this.probability);
     this.sliderSubmitted = true;
-    console.log(this.getProbability());
-    console.log(this.probabilities);
+    this.sliderToggle = true;
+    if (this.roundNumber === this.maxRounds) {
+      this.gameOver = true;
+    } else {
+      this.nextRound();
+    }
   }
 
   getSelfContrib() {
@@ -99,12 +105,19 @@ export class GameService {
   }
 
   nextRound() {
-    this.submitted = false;
-    this.setPCoop();
-    this.oppAnswered = false;
-    this.setSlider();
-    this.roundNumber += 1;
-  }
+    if (this.roundNumber % this.firstSlider === 0 && !this.sliderToggle) {
+      this.isSlider = true;
+      this.sliderSubmitted = false;
+    } else {
+      this.sliderToggle = false;
+      this.isSlider = false;
+      this.submitted = false;
+      this.setPCoop();
+      this.oppAnswered = false;
+      this.sliderSubmitted = false;
+      this.roundNumber += 1;
+    }
+}
 
   getChoice(player: string) {
     var contrib: number;
@@ -200,15 +213,6 @@ export class GameService {
       + contrib + ' points to give you ' + contrib*2 + ' points.';
   }
   
-  setSlider() {
-    if (this.roundNumber % this.firstSlider === 0) {
-      this.isSlider = true;
-      this.sliderSubmitted = false;
-    } 
-    else {
-      this.isSlider = false;
-    }
-  }
 
   isAnswered() {
     return this.choice ==='cooperate' || this.choice === 'defect';
@@ -218,31 +222,34 @@ export class GameService {
     return this.oppAnswered;
   }
 
-  isGameOver() {
-    if (this.submitted && this.roundNumber === this.maxRounds && this.oppAnswered && this.sliderSubmitted) {
-      return true;
-    } else {
-      return false;
-    }
+  showSlider() {
+    return this.isSlider && this.submitted && this.oppAnswered && !this.sliderSubmitted;
   }
 
   hideQuestion() {
-    return this.showSlider() || this.sliderSubmitted || this.submitted;
+    return this.showSlider() || this.submitted;
   }
 
   hideFeedback() {
-    return this.showSlider() || this.sliderSubmitted;
+    return this.showSlider() || this.gameOver;
   }
 
   showNextButton() {
-    if (this.roundNumber % this.firstSlider === 0) {
+    /*if (this.roundNumber % this.firstSlider === 0) {
       return this.submitted && this.oppAnswered && this.sliderSubmitted && !this.isGameOver();
     } else {
       return this.submitted && this.oppAnswered && !this.isGameOver(); 
+    } */
+
+    return this.submitted && this.oppAnswered && !this.isGameOver(); 
+  }
+
+  isGameOver() {
+    if (this.submitted && this.roundNumber === this.maxRounds && this.oppAnswered && this.sliderSubmitted) {
+      this.gameOver = true;
+    } else {
+      this.gameOver = false;
     }
   }
-  
-  showSlider() {
-    return this.roundNumber % this.firstSlider === 0 && this.submitted && this.oppAnswered && !this.sliderSubmitted;
-  }
+
 }

@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Neuton|Merriweaher|Poppins');
 
+[hidden] {
+  display: none !important;
+}
+
 .type1-text {
   font-family: 'Merriweather', serif;
   color: #323232;

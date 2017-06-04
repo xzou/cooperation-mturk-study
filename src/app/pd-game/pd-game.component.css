@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+p {
+  font-size: 14pt;
+}
+
 #game {
   width: 100%;
   padding: 0;
@@ -13,11 +17,12 @@
 #panels {
   width: 100%;
   height: 500px;
+  padding-top: 5%;
 }
 
 button {
-  width: 90px;
-  height: 27px;
+  width: 110px;
+  height: 30px;
   font-size: 9pt;
   border: 1pt solid #666;
   font-weight: 300;
@@ -30,7 +35,7 @@ button {
 
 #submit-button {
   display: block;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 input[type='radio'] {
@@ -40,9 +45,9 @@ input[type='radio'] {
 label {
   display: inline-block;
   width: 90;
-  height: 25px;
-  font-size: 13pt;
-  margin-right: 35px;
+  height: 30px;
+  font-size: 15pt;
+  margin-right: 40px;
   padding-bottom: 3px;
   border-bottom: 2pt solid transparent;
 }
@@ -63,6 +68,10 @@ input:checked + label {
 
 h4 {
   margin-top: 0;
+}
+
+#game-over h4 {
+  margin-bottom: 0;
 }
 
 #game-status {
@@ -173,6 +182,9 @@ h4 {
 }
 
 #question {
-  font-size: 16pt;
+  width: 400px;
+  margin-bottom: -20px;
+  font-size: 20pt;
+  line-height: 140%;
 }
 
