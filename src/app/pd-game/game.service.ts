@@ -34,6 +34,14 @@ export class GameService {
   sliderToggle: boolean = false;
   gameOver: boolean = false;
 
+  contribTimes: number[] = [];
+  probabilitiesTimes: number[] = [];
+
+  choiceT0: number;
+  choiceT1: number;
+  probT0: number;
+  probT1: number;
+
   setContrib() {
     if (this.choice === 'cooperate') {
       this.selfContrib = 20;
@@ -44,6 +52,10 @@ export class GameService {
     this.addSelfContrib(this.selfContrib);
     this.setFeedbackSelf();
     this.waiting = true;
+    this.choiceT1 = performance.now();
+    var difference = this.choiceT1 - this.choiceT0;
+    this.contribTimes.push(difference);
+    console.log(this.contribTimes);
     this.setOppMoved();
   }
 
@@ -91,6 +103,10 @@ export class GameService {
 
   addProbability () {
     this.probabilities.push(this.probability);
+    this.probT1 = performance.now();
+    var difference = this.probT1 - this.probT0;
+    this.probabilitiesTimes.push(difference);
+    console.log(this.probabilitiesTimes);
     this.sliderSubmitted = true;
     this.sliderToggle = true;
     if (this.roundNumber === this.maxRounds) {
@@ -107,11 +123,13 @@ export class GameService {
   nextRound() {
     if (this.roundNumber % this.firstSlider === 0 && !this.sliderToggle) {
       this.isSlider = true;
+      this.probT0 = performance.now();
       this.sliderSubmitted = false;
     } else {
       this.sliderToggle = false;
       this.isSlider = false;
       this.submitted = false;
+      this.choiceT0 = performance.now();
       this.setPCoop();
       this.oppAnswered = false;
       this.sliderSubmitted = false;
@@ -146,7 +164,7 @@ export class GameService {
 
   setPCoop() {
     if (this.condition === 1) {
-      if (this.roundNumber === 5) {
+      if (this.roundNumber === this.firstSlider) {
         this.pCoop = this.pCoop2;
         this.setPopulation();
       }

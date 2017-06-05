@@ -40,15 +40,15 @@ export class PDNameComponent implements OnInit {
   }
   
   createPlayer() {
-    var newPlayer = new Player(this.ip, this.firstName, this.age, this.gender);
+    var newPlayer = new Player(this.firstName, this.age, this.gender);
     this.playerService.addPlayer(newPlayer)
         .subscribe(player => {
           this.curPlayerService.player._id = player._id;
-          this.curPlayerService.player.ip = player.ip;
           this.curPlayerService.player.name = player.name;
           this.curPlayerService.player.age = player.age;
           this.curPlayerService.player.gender = player.gender;
           this.curPlayerService.player.mturk_code = player.mturk_code;
+          this.curPlayerService.player.ip = this.ip;
 
           this.router.navigateByUrl('/1');
         });

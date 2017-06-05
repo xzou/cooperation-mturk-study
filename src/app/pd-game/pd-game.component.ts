@@ -32,6 +32,7 @@ export class PDGameComponent implements OnInit, OnDestroy {
   }
 
   startGame() {
+    this.gameService.choiceT0 = performance.now();
     this.gameService.setPopulation(); 
   }
 
@@ -48,7 +49,9 @@ export class PDGameComponent implements OnInit, OnDestroy {
       opp_contributions: this.gameService.oppContribs,
       probabilities: this.gameService.probabilities,
       player_score: this.gameService.totalPoints,
-      opp_score: this.gameService.oppTotalPoints
+      opp_score: this.gameService.oppTotalPoints,
+      contrib_times: this.gameService.contribTimes,
+      probabilities_times: this.gameService.probabilitiesTimes
     }
   
     this.playerService.updatePlayer(updPlayer)
@@ -58,6 +61,8 @@ export class PDGameComponent implements OnInit, OnDestroy {
           this.curPlayerService.player.probabilities = this.gameService.probabilities;
           this.curPlayerService.player.player_score = this.gameService.totalPoints;
           this.curPlayerService.player.opp_score = this.gameService.oppTotalPoints;
+          this.curPlayerService.player.contrib_times = this.gameService.contribTimes;
+          this.curPlayerService.player.probabilities_times = this.gameService.probabilitiesTimes;
         });
     
   }
