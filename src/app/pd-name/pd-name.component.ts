@@ -23,16 +23,17 @@ export class PDNameComponent implements OnInit {
   firstName: string = '';
   age: number;
   gender: string = '';
-  players: Player[];
   isNewIP: boolean = false;
+  players: Player[];
   genderFiltered: boolean = false;
-  unselectedGender: string = '';
+  unselectedGender: string = 'male';
 
   ngOnInit() {
     if (this.isRevisited()) {
       this.router.navigate(['/end'], { replaceUrl: true } );
     } else { 
       this.ipService.getIP().then(data => {
+        this.curPlayerService.player.ip = data.ip;
         this.playerService.getPlayers()
             .subscribe(players => {
               this.players = players;
