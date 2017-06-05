@@ -26,7 +26,7 @@ export class PDNameComponent implements OnInit {
   players: Player[];
   isNewIP: boolean = false;
   genderFiltered: boolean = false;
-  unselectedGender: string = 'female';
+  unselectedGender: string = '';
 
   ngOnInit() {
     if (this.isRevisited()) {
