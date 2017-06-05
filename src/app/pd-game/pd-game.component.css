@@ -76,22 +76,23 @@ h4 {
 
 #game-status {
   padding: 15px 0 150px 0;
-  width: 180px;
+  width: 220px;
   margin-left: auto;
   margin-right: auto;
 }
 
 #points-label {
-  width: 110px;
+  width: 130px;
   height: 35px;
   float: left;
   background-color: #555;
   text-align: center;
+  border-right: 1px solid white;
 }
 
 #round-label {
   margin: 0 0 0 0;
-  width: 70px;
+  width: 90px;
   height: 35px;
   float: left;
   text-align: center;
@@ -119,30 +120,33 @@ h4 {
 }
 
 #points {
-  width: 110px;
+  width: 130px;
   height: 70px;
   float: left;
   background-color: #24c3ad;
   text-align: center;
   position: relative;
   top: 50%;
+  border-right: 1px solid white;
+  border-top: 1px solid white;
 }
 
 #points p,
 #round p {
   margin: 0;
   padding: 0;
-  font-size: 43pt;
+  font-size: 36pt;
   color: white;
   font-weight: 200;
 }
 
 #round {
-  width: 70px;
+  width: 90px;
   height: 70px;
   float: left;
   text-align: center;
   background-color: #909090;
+  border-top: 1px solid white;
 }
 
 #player-image,
@@ -182,9 +186,9 @@ h4 {
 }
 
 #question {
-  width: 400px;
+  width: 380px;
   margin-bottom: -20px;
-  font-size: 20pt;
+  font-size: 18pt;
   line-height: 140%;
 }
 

@@ -63,6 +63,7 @@ export class PDNameComponent implements OnInit {
           this.curPlayerService.player.age = player.age;
           this.curPlayerService.player.gender = player.gender;
           this.curPlayerService.player.mturk_code = player.mturk_code;
+          this.curPlayerService.player.gender_filtered = player.gender_filtered;
 
           if (this.genderFiltered) {
             this.router.navigateByUrl('/filter', { replaceUrl: true });

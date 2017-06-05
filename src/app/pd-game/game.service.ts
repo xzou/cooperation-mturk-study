@@ -5,8 +5,9 @@ export class GameService {
 
   constructor() { }
 
-  maxRounds: number = 4;
-  firstSlider: number = 2;
+  maxRounds: number = 80;
+  firstSlider: number = 10;
+
   choice: string = '';
   playerContribs: number[] = [];
   oppContribs: number[] = [];
@@ -55,7 +56,6 @@ export class GameService {
     this.choiceT1 = performance.now();
     var difference = this.choiceT1 - this.choiceT0;
     this.contribTimes.push(difference);
-    console.log(this.contribTimes);
     this.setOppMoved();
   }
 
@@ -106,7 +106,6 @@ export class GameService {
     this.probT1 = performance.now();
     var difference = this.probT1 - this.probT0;
     this.probabilitiesTimes.push(difference);
-    console.log(this.probabilitiesTimes);
     this.sliderSubmitted = true;
     this.sliderToggle = true;
     if (this.roundNumber === this.maxRounds) {
@@ -164,17 +163,20 @@ export class GameService {
 
   setPCoop() {
     if (this.condition === 1) {
-      if (this.roundNumber === this.firstSlider) {
+      if (this.roundNumber === 40) {
         this.pCoop = this.pCoop2;
         this.setPopulation();
+        console.log('Changing probabilities');
       }
     } else if (this.condition === 2) {
         if (this.roundNumber === 20 || this.roundNumber === 60) {
           this.pCoop = this.pCoop2;
           this.setPopulation();
+          console.log('Changing probabilities');
         } else if(this.roundNumber === 40) {
           this.pCoop = this.pCoop1;
           this.setPopulation();
+          console.log('Changing probabilities');
         }
     } else if (this.condition === 3) {
       if (this.roundNumber === 10 || 
@@ -183,11 +185,13 @@ export class GameService {
           this.roundNumber === 70) {
         this.pCoop = this.pCoop2;
         this.setPopulation();
+        console.log('Changing probabilities');
       } else if (this.roundNumber === 20 ||
                 this.roundNumber === 40 ||
                 this.roundNumber === 60) {
         this.pCoop = this.pCoop1;
         this.setPopulation();
+        console.log('Changing probabilities');
       }
     }
   }

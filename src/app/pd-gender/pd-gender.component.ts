@@ -19,8 +19,6 @@ export class PDGenderComponent implements OnInit {
               private curPlayerService: CurrentPlayerService) { }
 
   ngOnInit() {
-    console.log('IP in service: ' + this.curPlayerService.player.ip);
-
     var updPlayer: Player = {
       _id: this.curPlayerService.player._id,
       ip: this.curPlayerService.player.ip,
