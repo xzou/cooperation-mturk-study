@@ -1,5 +1,5 @@
 
-<div id="player-info" class="type2-text" [hidden]="isRevisited()">
+<div id="player-info" class="type2-text" *ngIf="showPage()">
   <p class="type2-text">Please enter the following information:</p>
 
   <form #f="ngForm" (ngSubmit)="createPlayer()" autocomplete="off">

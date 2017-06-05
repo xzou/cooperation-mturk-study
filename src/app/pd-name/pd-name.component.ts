@@ -24,6 +24,7 @@ export class PDNameComponent implements OnInit {
   age: number;
   gender: string = '';
   players: Player[];
+  isNewIP: boolean = false;
 
   ngOnInit() {
     if (this.isRevisited()) {
@@ -33,20 +34,23 @@ export class PDNameComponent implements OnInit {
         this.playerService.getPlayers()
             .subscribe(players => {
               this.players = players;
-              this.players.forEach(player => {
+
+              this.players.some(player => {
                 if (data.ip === player.ip) {
                   this.router.navigateByUrl('/sorry');
-                } else {
-                  this.curPlayerService.player.ip = data.ip;
-                 }
+                }  
+                return data.ip === player.ip;
               });
+
+              this.curPlayerService.player.ip = data.ip;
+              this.isNewIP = true;
             });
       });
     }
   }
   
   createPlayer() {
-    var newPlayer = new Player(this.firstName, this.age, this.gender);
+    var newPlayer = new Player(this.firstName, this.age, this.gender, false);
     this.playerService.addPlayer(newPlayer)
         .subscribe(player => {
           this.curPlayerService.player._id = player._id;
@@ -54,6 +58,7 @@ export class PDNameComponent implements OnInit {
           this.curPlayerService.player.age = player.age;
           this.curPlayerService.player.gender = player.gender;
           this.curPlayerService.player.mturk_code = player.mturk_code;
+          this.curPlayerService.player.is_complete = player.is_complete;
 
           this.router.navigateByUrl('/1');
         });
@@ -66,6 +71,10 @@ export class PDNameComponent implements OnInit {
   // Check to see if player arrived at this page via the browser back button
   isRevisited() {
     return this.curPlayerService.getName() !== '';
+  }
+
+  showPage() {
+    return this.isNewIP && !this.isRevisited();
   }
  
 }

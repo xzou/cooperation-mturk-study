@@ -21,7 +21,8 @@ export class CurrentPlayerService {
     probabilities_times: [],
     player_score: 0,
     opp_score: 0,
-    mturk_code: ''
+    mturk_code: '',
+    is_complete: false
   };
 
   getPlayer() {

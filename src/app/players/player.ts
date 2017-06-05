@@ -13,14 +13,17 @@ export class Player {
   public player_score?: number;
   public opp_score?: number;
   public mturk_code?: string;
+  public is_complete?: boolean;
 
   constructor (
     name?: string,
     age?: number,
-    gender?: string) {
-
+    gender?: string,
+    is_complete?: boolean
+  ) {
     this.name = name;
     this.age = age;
     this.gender = gender;
+    this.is_complete = is_complete;
   } 
 }
