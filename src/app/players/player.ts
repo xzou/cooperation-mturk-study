@@ -14,16 +14,18 @@ export class Player {
   public opp_score?: number;
   public mturk_code?: string;
   public is_complete?: boolean;
+  public gender_filtered?: boolean;
 
   constructor (
     name?: string,
     age?: number,
     gender?: string,
-    is_complete?: boolean
+    gender_filtered?: boolean
   ) {
     this.name = name;
     this.age = age;
     this.gender = gender;
-    this.is_complete = is_complete;
+    this.is_complete = false;
+    this.gender_filtered = gender_filtered;
   } 
 }
