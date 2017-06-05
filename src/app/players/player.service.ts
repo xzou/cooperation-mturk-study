@@ -13,13 +13,10 @@ export class PlayerService {
 
   constructor(private http: Http) { }
 
-  getPlayers(): Promise<Array<Player>> {
+  getPlayers(): Observable<Array<Player>> {
     return this.http
-      .get(this.playersUrl)
-      .toPromise()
-      .then((response) => {
-        return response.json().data as Player[];
-      })
+            .get(this.playersUrl)
+    .map(res => res.json())
       .catch(this.handleError);
   }
 

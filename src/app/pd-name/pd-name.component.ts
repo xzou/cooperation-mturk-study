@@ -23,18 +23,24 @@ export class PDNameComponent implements OnInit {
   firstName: string = '';
   age: number;
   gender: string = '';
-  ip: string = '';
+  players: Player[];
 
   ngOnInit() {
     if (this.isRevisited()) {
       this.router.navigate(['/end'], { replaceUrl: true } );
     } else { 
       this.ipService.getIP().then(data => {
-        if (this.checkIP(data.ip)) {
-          console.log('womp womp');
-        } else {
-            this.ip = data.ip;
-        }
+        this.playerService.getPlayers()
+            .subscribe(players => {
+              this.players = players;
+              this.players.forEach(player => {
+                if (data.ip === player.ip) {
+                  this.router.navigateByUrl('/sorry');
+                } else {
+                  this.curPlayerService.player.ip = data.ip;
+                 }
+              });
+            });
       });
     }
   }
@@ -48,7 +54,6 @@ export class PDNameComponent implements OnInit {
           this.curPlayerService.player.age = player.age;
           this.curPlayerService.player.gender = player.gender;
           this.curPlayerService.player.mturk_code = player.mturk_code;
-          this.curPlayerService.player.ip = this.ip;
 
           this.router.navigateByUrl('/1');
         });
@@ -63,8 +68,4 @@ export class PDNameComponent implements OnInit {
     return this.curPlayerService.getName() !== '';
   }
  
-  // Check whether player IP is already in the database
-  checkIP(playerIP) {
-    return playerIP === '';
-  }
 }
