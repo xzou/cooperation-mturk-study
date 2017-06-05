@@ -26,7 +26,7 @@ export class PDNameComponent implements OnInit {
   players: Player[];
   isNewIP: boolean = false;
   genderFiltered: boolean = false;
-  unselectedGender: string = '';
+  unselectedGender: string = 'female';
 
   ngOnInit() {
     if (this.isRevisited()) {
@@ -39,7 +39,7 @@ export class PDNameComponent implements OnInit {
 
               this.players.some(player => {
                 if (data.ip === player.ip) {
-                  this.router.navigateByUrl('/sorry');
+                  this.router.navigateByUrl('/sorry', { replaceUrl: true });
                 }  
                 return data.ip === player.ip;
               });
@@ -62,10 +62,9 @@ export class PDNameComponent implements OnInit {
           this.curPlayerService.player.age = player.age;
           this.curPlayerService.player.gender = player.gender;
           this.curPlayerService.player.mturk_code = player.mturk_code;
-          this.curPlayerService.player.gender_filtered = player.gender_filtered;
 
           if (this.genderFiltered) {
-            this.router.navigateByUrl('/sorry', { replaceUrl: true });
+            this.router.navigateByUrl('/filter', { replaceUrl: true });
           } else {
             this.router.navigateByUrl('/1', { replaceUrl: true });
           }
