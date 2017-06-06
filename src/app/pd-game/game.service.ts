@@ -7,6 +7,7 @@ export class GameService {
 
   maxRounds: number = 80;
   firstSlider: number = 10;
+  condition: number = 2;
 
   choice: string = '';
   playerContribs: number[] = [];
@@ -24,7 +25,6 @@ export class GameService {
   pCoop1: number = .2;
   pCoop2: number = 1-this.pCoop1;
   pCoop: number = this.pCoop1;
-  condition: number = 1;
   roundNumber: number = 1;
   submitted: boolean = false;
   oppAnswered: boolean = false;
@@ -173,10 +173,12 @@ export class GameService {
           this.pCoop = this.pCoop2;
           this.setPopulation();
           console.log('Changing probabilities');
+          console.log(this.pCoop);
         } else if(this.roundNumber === 40) {
           this.pCoop = this.pCoop1;
           this.setPopulation();
           console.log('Changing probabilities');
+          console.log(this.pCoop);
         }
     } else if (this.condition === 3) {
       if (this.roundNumber === 10 || 
