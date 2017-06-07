@@ -5,9 +5,8 @@ export class GameService {
 
   constructor() { }
 
-  count: number = 0;
-  maxRounds: number = 1;
-  firstSlider: number = 1;
+  maxRounds: number = 9;
+  firstSlider: number = 3;
   condition: number = 2;
 
   choice: string = '';
@@ -270,8 +269,6 @@ export class GameService {
   }
 
   showGameQuestion() {
-    this.count += 1;
-    console.log('In game question ' + this.count + ' : ' + this.gameQuestionSubmitted);
     return this.submitted && this.roundNumber === this.maxRounds && this.oppAnswered && this.sliderSubmitted && this.gameQuestionSubmitted === false;
   }
 
