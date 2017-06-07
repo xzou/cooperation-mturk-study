@@ -55,13 +55,16 @@
         </button>
       </div> <!-- div id="feedback" -->
 
-      <div id="probabilities-panel" [hidden]="!this.gameService.showSlider()">
+      <div id="probabilities-panel" *ngIf="this.gameService.showSlider()">
         <p>What do you think is the probability that Kai will cooperate with you?</p>
         <pd-probabilities></pd-probabilities>
       </div>
 
+      <div id="end-question-panel" *ngIf="this.gameService.showGameQuestion()" >
+        <pd-game-question></pd-game-question>
+      </div>
 
-      <div id="game-over" *ngIf="this.gameService.gameOver">
+      <div id="game-over" *ngIf="this.gameService.isGameOver()">
         <h4>Congratulations! You have completed the game and have earned a total of {{this.gameService.totalPoints}} points.</h4>
         <pd-nav-button url="7" label="Proceed"></pd-nav-button>
       </div>
@@ -74,4 +77,4 @@
     </div>
   <!-- div id="panels" --> 
 </div> <!-- div id="game" -->
-
+ 

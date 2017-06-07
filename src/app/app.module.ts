@@ -25,6 +25,7 @@ import { PDWaitingComponent } from './pd-game/pd-waiting/pd-waiting.component';
 import { PDMturkComponent } from './pd-mturk/pd-mturk.component';
 import { PDProbabilitiesComponent } from './pd-game/pd-probabilities/pd-probabilities.component';
 import { PDGenderComponent } from './pd-gender/pd-gender.component';
+import { PDGameQuestionComponent } from './pd-game/pd-game-question/pd-game-question.component';
 
 //import { CurrentPlayerService } from './players/current-player.service';
 
@@ -47,7 +48,8 @@ import { PDGenderComponent } from './pd-gender/pd-gender.component';
     PDWaitingComponent,
     PDMturkComponent,
     PDProbabilitiesComponent,
-    PDGenderComponent
+    PDGenderComponent,
+    PDGameQuestionComponent
   ],
   imports: [
     BrowserModule,

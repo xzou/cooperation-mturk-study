@@ -1,0 +1,14 @@
+<div id="end-question" class="type2-text">
+  <form #f="ngForm">
+    <div id="end-question-question">What kind of a person did you think that Kai was overall?</div> <br>
+
+    <input type="radio" name="end-choice" id="cooperator" [(ngModel)]="this.gameService.oppBehavior" value="cooperator">
+      <label for="cooperator">A cooperator, i.e. someone who gives to others</label> 
+
+    <input type="radio" name="end-choice" id="defector" [(ngModel)]="this.gameService.oppBehavior" value="defector">
+      <label for="defector">A defector, i.e. someone who acts selfishly</label> 
+
+    <button type="button" [disabled]="!this.gameService.isAnsweredGameQuestion()" (click)="this.gameService.gameQuestionSubmitted = true">Special button
+    </button>
+  </form>
+</div>

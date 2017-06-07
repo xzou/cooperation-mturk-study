@@ -5,8 +5,9 @@ export class GameService {
 
   constructor() { }
 
-  maxRounds: number = 80;
-  firstSlider: number = 10;
+  count: number = 0;
+  maxRounds: number = 1;
+  firstSlider: number = 1;
   condition: number = 2;
 
   choice: string = '';
@@ -42,6 +43,9 @@ export class GameService {
   choiceT1: number;
   probT0: number;
   probT1: number;
+
+  gameQuestionSubmitted: boolean = false;
+  oppBehavior: string = '';
 
   setContrib() {
     if (this.choice === 'cooperate') {
@@ -236,7 +240,6 @@ export class GameService {
     this.feedbackOpp = 'Kai chose to ' + choice + '. Kai contributed '
       + contrib + ' points to give you ' + contrib*2 + ' points.';
   }
-  
 
   isAnswered() {
     return this.choice ==='cooperate' || this.choice === 'defect';
@@ -244,6 +247,10 @@ export class GameService {
 
   isOppAnswered() {
     return this.oppAnswered;
+  }
+
+  isAnsweredGameQuestion() {
+    return this.oppBehavior === 'cooperator' || this.oppBehavior === 'defector';
   }
 
   showSlider() {
@@ -262,12 +269,14 @@ export class GameService {
     return this.submitted && this.oppAnswered && !this.isGameOver(); 
   }
 
+  showGameQuestion() {
+    this.count += 1;
+    console.log('In game question ' + this.count + ' : ' + this.gameQuestionSubmitted);
+    return this.submitted && this.roundNumber === this.maxRounds && this.oppAnswered && this.sliderSubmitted && this.gameQuestionSubmitted === false;
+  }
+
   isGameOver() {
-    if (this.submitted && this.roundNumber === this.maxRounds && this.oppAnswered && this.sliderSubmitted) {
-      this.gameOver = true;
-    } else {
-      this.gameOver = false;
-    }
+    return this.gameQuestionSubmitted;
   }
 
 }

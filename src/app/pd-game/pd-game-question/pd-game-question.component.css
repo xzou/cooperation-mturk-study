@@ -1,0 +1,32 @@
+#end-question {
+  font-size: 15pt;
+}
+
+#end-question-question {
+  margin-bottom: -15px;
+}
+
+label {
+  display: block;
+  font-size: 14pt;
+  width: 450px;
+  border-bottom: 2px solid white;
+}
+
+label:hover, label:active, input:hover+label, input:active+label {
+  cursor: crosshair;
+  color: #9c9c9c;
+}
+
+input:checked + label {
+  color: #24c3ad;
+}
+
+button {
+  margin-top: 20px;  
+  width: 110px;
+  height: 30px;
+  font-size: 9pt;
+  border: 1pt solid #666;
+  font-weight: 300;
+}

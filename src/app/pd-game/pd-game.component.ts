@@ -1,8 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { PDGameSelfComponent } from './pd-game-self/pd-game-self.component';
-import { PDGameOppComponent } from './pd-game-opp/pd-game-opp.component';
-
 import { Player } from '../players/player';
 
 import { PlayerService } from '../players/player.service';
@@ -52,6 +49,7 @@ export class PDGameComponent implements OnInit, OnDestroy {
       opp_score: this.gameService.oppTotalPoints,
       contrib_times: this.gameService.contribTimes,
       probabilities_times: this.gameService.probabilitiesTimes,
+      opp_behavior: this.gameService.oppBehavior,
       is_complete: true
     }
   
@@ -64,6 +62,7 @@ export class PDGameComponent implements OnInit, OnDestroy {
           this.curPlayerService.player.opp_score = this.gameService.oppTotalPoints;
           this.curPlayerService.player.contrib_times = this.gameService.contribTimes;
           this.curPlayerService.player.probabilities_times = this.gameService.probabilitiesTimes;
+          this.curPlayerService.player.opp_behavior = this.gameService.oppBehavior;
           this.curPlayerService.player.is_complete = true;
         });
     

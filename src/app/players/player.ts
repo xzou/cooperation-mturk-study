@@ -15,6 +15,7 @@ export class Player {
   public mturk_code?: string;
   public is_complete?: boolean;
   public gender_filtered?: boolean;
+  public opp_behavior?: string;
 
   constructor (
     name?: string,

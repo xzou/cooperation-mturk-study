@@ -23,7 +23,8 @@ export class CurrentPlayerService {
     opp_score: 0,
     mturk_code: '',
     is_complete: false,
-    gender_filtered: false
+    gender_filtered: false,
+    opp_behavior: ''
   };
 
   getPlayer() {
