@@ -22,7 +22,7 @@ export class GameService {
   oppMoved: boolean = false; 
   population: number[]; 
   interval: any;
-  pCoop1: number = .2;
+  pCoop1: number = .35;
   pCoop2: number = 1-this.pCoop1;
   pCoop: number = this.pCoop1;
   roundNumber: number = 1;
@@ -81,11 +81,17 @@ export class GameService {
   }
 
   setOppMoved() {
-    var waitTime: number = Math.random()*5000;
-    setTimeout( () => {
+    var moveOrder: number = Math.floor(Math.random()*2);
+    if (moveOrder === 0) {
+      var waitTime: number = Math.random()*3500;
+      setTimeout( () => {
+        this.setOppContrib();
+      }, waitTime);
+      return this.oppMoved;
+    } else if (moveOrder === 1) {
       this.setOppContrib();
-    }, waitTime);
-    return this.oppMoved;
+      return this.oppMoved;
+    }
   }
 
   addSelfContrib(contrib: number) {
@@ -156,10 +162,10 @@ export class GameService {
   }
 
   setPopulation() {
-    if (this.pCoop === 0.2) {
-      this.population = [1,1,0,0,0,0,0,0,0,0];
-    } else if (this.pCoop === 0.8) {
-      this.population = [1,1,1,1,1,1,1,1,0,0];
+    if (this.pCoop === 0.35) {
+      this.population = [1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    } else if (this.pCoop === 0.65) {
+      this.population = [1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0];
     } 
     return this.population;
   }
