@@ -8,7 +8,7 @@
     <input type="radio" name="end-choice" id="defector" [(ngModel)]="this.gameService.oppBehavior" value="defector">
       <label for="defector">A defector, i.e. someone who acts selfishly</label> 
 
-    <button type="button" [disabled]="!this.gameService.isAnsweredGameQuestion()" (click)="this.gameService.gameQuestionSubmitted = true">Special button
+    <button type="button" [disabled]="!this.gameService.isAnsweredGameQuestion()" (click)="this.gameService.gameQuestionSubmitted = true">Submit
     </button>
   </form>
 </div>
