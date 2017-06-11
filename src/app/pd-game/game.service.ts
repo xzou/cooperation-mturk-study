@@ -7,7 +7,7 @@ export class GameService {
 
   maxRounds: number = 80; 
   firstSlider: number = 10;
-  condition: number = 2;
+  condition: number = 3;
 
   choice: string = '';
   playerContribs: number[] = [];
@@ -22,7 +22,7 @@ export class GameService {
   oppMoved: boolean = false; 
   population: number[]; 
   interval: any;
-  pCoop1: number = .35;
+  pCoop1: number = .65;
   pCoop2: number = 1-this.pCoop1;
   pCoop: number = this.pCoop1;
   roundNumber: number = 1;
