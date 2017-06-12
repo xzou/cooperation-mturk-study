@@ -5,6 +5,7 @@ button {
   font-size: 9pt;
   border: 1pt solid #666;
   font-weight: 300;
+  margin-top: 30px;
 }
 
 #prob-indicator {

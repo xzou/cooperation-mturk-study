@@ -50,3 +50,7 @@ input:checked + label {
   border-bottom: 2pt solid #24c3ad; 
 }
 
+button {
+  margin-top: 20px;
+}
+

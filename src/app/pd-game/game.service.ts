@@ -5,8 +5,8 @@ export class GameService {
 
   constructor() { }
 
-  maxRounds: number = 80; 
-  firstSlider: number = 10;
+  maxRounds: number = 9; 
+  firstSlider: number = 3;
   condition: number = 3;
 
   choice: string = '';
@@ -42,6 +42,7 @@ export class GameService {
   choiceT1: number;
   probT0: number;
   probT1: number;
+  difference: number;
 
   gameQuestionSubmitted: boolean = false;
   oppBehavior: string = '';
@@ -57,8 +58,8 @@ export class GameService {
     this.setFeedbackSelf();
     this.waiting = true;
     this.choiceT1 = performance.now();
-    var difference = this.choiceT1 - this.choiceT0;
-    this.contribTimes.push(difference);
+    this.difference = this.choiceT1 - this.choiceT0;
+    this.contribTimes.push(this.difference);
     this.setOppMoved();
   }
 
@@ -81,16 +82,20 @@ export class GameService {
   }
 
   setOppMoved() {
-    var moveOrder: number = Math.floor(Math.random()*2);
-    if (moveOrder === 0) {
-      var waitTime: number = Math.random()*3500;
-      setTimeout( () => {
+    if (this.difference <= 3000) {
+      var moveOrder: number = Math.floor(Math.random()*2);
+      if (moveOrder === 0) {
+        var waitTime: number = Math.random()*3500;
+        setTimeout( () => {
+          this.setOppContrib();
+        }, waitTime);
+        return this.oppMoved;
+      } else if (moveOrder === 1) {
         this.setOppContrib();
-      }, waitTime);
-      return this.oppMoved;
-    } else if (moveOrder === 1) {
+        return this.oppMoved;
+      }
+    } else if (this.difference > 3000) {
       this.setOppContrib();
-      return this.oppMoved;
     }
   }
 
