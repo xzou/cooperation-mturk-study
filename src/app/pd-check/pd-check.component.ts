@@ -8,7 +8,8 @@ import { CurrentPlayerService } from '../players/current-player.service';
 @Component({
   selector: 'pd-check',
   templateUrl: './pd-check.component.html',
-  styleUrls: ['./pd-check.component.css']
+  styleUrls: ['./pd-check.component.css'],
+  providers: [ PlayerService ]
 })
 
 export class PDCheckComponent implements OnInit, OnDestroy {
