@@ -28,6 +28,7 @@ import { PDGenderComponent } from './pd-gender/pd-gender.component';
 import { PDGameQuestionComponent } from './pd-game/pd-game-question/pd-game-question.component';
 import { PDFindingOppComponent } from './pd-finding-opp/pd-finding-opp.component';
 import { PDInstructionsMainComponent } from './pd-instructions-main/pd-instructions-main.component';
+import { PDCheckComponent } from './pd-check/pd-check.component';
 
 //import { CurrentPlayerService } from './players/current-player.service';
 
@@ -53,7 +54,8 @@ import { PDInstructionsMainComponent } from './pd-instructions-main/pd-instructi
     PDGenderComponent,
     PDGameQuestionComponent,
     PDFindingOppComponent,
-    PDInstructionsMainComponent
+    PDInstructionsMainComponent,
+    PDCheckComponent
   ],
   imports: [
     BrowserModule,

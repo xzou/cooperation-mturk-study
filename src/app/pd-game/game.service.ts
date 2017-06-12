@@ -5,8 +5,8 @@ export class GameService {
 
   constructor() { }
 
-  maxRounds: number = 9; 
-  firstSlider: number = 3;
+  maxRounds: number = 1; 
+  firstSlider: number = 1;
   condition: number = 3;
 
   choice: string = '';
@@ -260,7 +260,8 @@ export class GameService {
   }
 
   isAnsweredGameQuestion() {
-    return this.oppBehavior === 'cooperator' || this.oppBehavior === 'defector';
+    return this.oppBehavior === 'cooperator' || this.oppBehavior === 'defector' ||
+            this.oppBehavior === 'neither';
   }
 
   showSlider() {

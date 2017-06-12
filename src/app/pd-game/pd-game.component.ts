@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Player } from '../players/player';
-
 import { PlayerService } from '../players/player.service';
 import { CurrentPlayerService } from '../players/current-player.service';
 import { GameService } from './game.service';
@@ -17,7 +17,8 @@ export class PDGameComponent implements OnInit, OnDestroy {
   playerImagePath: string;
   oppImagePath: string;
 
-  constructor(private playerService: PlayerService,
+  constructor(private router: Router,
+              private playerService: PlayerService,
               private curPlayerService: CurrentPlayerService,
               private gameService: GameService) {
     this.playerImagePath = '/assets/images/self.png';
@@ -31,6 +32,10 @@ export class PDGameComponent implements OnInit, OnDestroy {
   startGame() {
     this.gameService.choiceT0 = performance.now();
     this.gameService.setPopulation(); 
+  }
+
+  goToPaymentInfo() {
+    this.router.navigateByUrl('/7', { replaceUrl: true });
   }
 
   ngOnDestroy() {
