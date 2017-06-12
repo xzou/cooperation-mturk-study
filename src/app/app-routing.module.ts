@@ -47,6 +47,10 @@ const routes: Routes = [
   },
   {
     path: '7',
+    component: PDPaymentInfoComponent
+  },
+  {
+    path: '8',
     component: PDCheckComponent
   },
   {

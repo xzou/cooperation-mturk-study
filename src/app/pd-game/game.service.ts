@@ -5,9 +5,9 @@ export class GameService {
 
   constructor() { }
 
-  maxRounds: number = 1; 
-  firstSlider: number = 1;
-  condition: number = 3;
+  maxRounds: number = 80; 
+  firstSlider: number = 10;
+  condition: number = 1;
 
   choice: string = '';
   playerContribs: number[] = [];

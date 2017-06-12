@@ -24,7 +24,8 @@ export class CurrentPlayerService {
     mturk_code: '',
     is_complete: false,
     gender_filtered: false,
-    opp_behavior: ''
+    opp_behavior: '',
+    check_answer: ''
   };
 
   getPlayer() {
