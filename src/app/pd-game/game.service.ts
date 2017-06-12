@@ -84,7 +84,7 @@ export class GameService {
   setOppMoved() {
     if (this.difference <= 3000) {
       var moveOrder: number = Math.floor(Math.random()*2);
-      if (moveOrder === 0) {
+      if (this.difference <= 1200 || moveOrder === 0) {
         var waitTime: number = Math.random()*3500;
         setTimeout( () => {
           this.setOppContrib();
