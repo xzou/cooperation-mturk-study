@@ -7,7 +7,7 @@ export class GameService {
 
   maxRounds: number = 80; 
   firstSlider: number = 10;
-  condition: number = 1;
+  condition: number = 2;
 
   choice: string = '';
   playerContribs: number[] = [];
@@ -22,7 +22,7 @@ export class GameService {
   oppMoved: boolean = false; 
   population: number[]; 
   interval: any;
-  pCoop1: number = .65;
+  pCoop1: number = .3;
   pCoop2: number = 1-this.pCoop1;
   pCoop: number = this.pCoop1;
   roundNumber: number = 1;
@@ -171,7 +171,11 @@ export class GameService {
       this.population = [1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0];
     } else if (this.pCoop === 0.65) {
       this.population = [1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0];
-    } 
+    } else if (this.pCoop === 0.3) {
+      this.population = [1,1,1,0,0,0,0,0,0,0];
+    } else if (this.pCoop === 0.7) {
+      this.population = [1,1,1,1,1,1,1,0,0,0];
+    }
     return this.population;
   }
 

@@ -63,6 +63,13 @@
       <p>At the end of the experiment, the number of points you have over 100 will correspond
       to your bonus payment, so you will need to collect as many points as possible to 
       maximize your payout. </p>
+      <p>You will therefore be paid</p>
+      <ul>
+        <li>$1.00 for your initial show-up fee corresponding to the 100 points you are initially given</li>
+        <li>A bonus payment of $0.01 for every 10 points you earn above 100 points</li>
+      </ul>
+      <p>For example, if you end up with 1000 points, then you will be paid 1.00 + (0.01)*[(1000 - 100)/10] = 1.00 + 0.90 = $1.90
+      total for the experiment</p>
       <p><strong>NOTE: you must finish the experiment to receive this
       bonus payment.</strong></p>
       <button type="button" class="next-button" (click)="this.setPageEight()">Next</button>
@@ -73,11 +80,9 @@
       <h2>Opponent Predictions</h2>
       <p>You will also be asked to make predictions about your opponent throughout the game.
       For example, if you were playing against an opponent named Kai, you would be asked to 
-      provide your guess about the probability that Kai will cooperate with you. </p>
+      provide your guess about the probability that Kai will cooperate with you. Use the
+      scale provided to be as accurate as possible with your predictions. </p>
       
-      <p>Remember: a low probability (e.g. 0.1) means you think that Kai will not cooperate 
-      with you. A high probability (e.g. 0.9) means you are certain Kai will cooperate with 
-      you. Use the scale provided to be as accurate as possible about your predictions.</p>
 
       <p>Click "Next" to proceed to the quiz. You must answer correctly to continue with 
       the experiment.</p>

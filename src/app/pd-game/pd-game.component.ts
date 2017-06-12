@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Player } from '../players/player';
@@ -13,7 +13,7 @@ import { GameService } from './game.service';
   providers: [ PlayerService, GameService ]
 })
 
-export class PDGameComponent implements OnInit, OnDestroy {
+export class PDGameComponent implements OnInit {
   playerImagePath: string;
   oppImagePath: string;
 
@@ -35,10 +35,6 @@ export class PDGameComponent implements OnInit, OnDestroy {
   }
 
   goToPaymentInfo() {
-    this.router.navigateByUrl('/7', { replaceUrl: true });
-  }
-
-  ngOnDestroy() {
     var updPlayer: Player = {
       _id: this.curPlayerService.player._id,
       ip: this.curPlayerService.player.ip,
@@ -67,8 +63,7 @@ export class PDGameComponent implements OnInit, OnDestroy {
           this.curPlayerService.player.contrib_times = this.gameService.contribTimes;
           this.curPlayerService.player.probabilities_times = this.gameService.probabilitiesTimes;
           this.curPlayerService.player.opp_behavior = this.gameService.oppBehavior;
+          this.router.navigateByUrl('/7', { replaceUrl: true });
         });
-    
   }
-
 }
