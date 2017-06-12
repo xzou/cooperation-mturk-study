@@ -24,8 +24,14 @@ export class PDInstructionsMainComponent implements OnInit {
   page8: boolean = false;
   page9: boolean = false;
 
-  screenshotGamePath = '/assets/images/game.png';
-  screenshotProbPath = '/assets/images/probabilities.png';
+  gamePath = '/assets/images/game.png';
+  probPath = '/assets/images/probabilities.png';
+  coopcoopPath = '/assets/images/coopcoop.png';
+  coopdefPath = '/assets/images/coopdef.png';
+  defcoopPath = '/assets/images/defcoop.png';
+  defdefPath = '/assets/images/defdef.png';
+  feedbackPath = '/assets/images/feedback.png';
+  paymentPath = '/assets/images/payment.png';
 
   ngOnInit() {
   }
@@ -38,6 +44,7 @@ export class PDInstructionsMainComponent implements OnInit {
   setPageTwo() {
     this.page2 = false;
     this.page3 = true;
+    this.isGameScreenshot = false;
   }
 
   backPageTwo() {
@@ -53,6 +60,7 @@ export class PDInstructionsMainComponent implements OnInit {
   backPageThree() {
     this.page2 = true;
     this.page3 = false;
+    this.isGameScreenshot = true;
   }
 
   setPageFour() {
@@ -99,7 +107,6 @@ export class PDInstructionsMainComponent implements OnInit {
   setPageEight() {
     this.page8 = false;
     this.page9 = true;
-    this.isGameScreenshot = false;
     this.isProbScreenshot = true;
   }
 
@@ -112,7 +119,6 @@ export class PDInstructionsMainComponent implements OnInit {
   backPageNine() {
     this.page8 = true;
     this.page9 = false;
-    this.isGameScreenshot = true;
     this.isProbScreenshot = false;
   }
 

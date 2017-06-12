@@ -95,6 +95,12 @@
 </div> <!-- div id="instructions" -->
 
   <div id="screenshot">
-    <img [src]="this.screenshotGamePath" *ngIf="this.isGameScreenshot">
-    <img [src]="this.screenshotProbPath" *ngIf="this.isProbScreenshot">
+    <img [src]="this.gamePath" *ngIf="this.isGameScreenshot">
+    <img [src]="this.probPath" *ngIf="this.isProbScreenshot" id="probabilities-pic">
+    <img [src]="this.coopcoopPath" *ngIf="this.page3">
+    <img [src]="this.defdefPath" *ngIf="this.page4">
+    <img [src]="this.coopdefPath" *ngIf="this.page5">
+    <img [src]="this.defcoopPath" *ngIf="this.page6">
+    <img [src]="this.feedbackPath" *ngIf="this.page7">
+    <img [src]="this.paymentPath" *ngIf="this.page8" id="payment-pic">
   </div>

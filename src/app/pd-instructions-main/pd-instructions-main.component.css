@@ -1,5 +1,5 @@
 #instructions {
-  width: 490px;
+  width: 500px;
   float: left;
   background: #24c3ad;
   margin: -10px 0 0 -10px;
@@ -21,7 +21,7 @@ h2 {
 #screenshot {
   float: right;
   padding-top: 10%;
-  margin-right: 80px;
+  margin-right: 50px;
 }
 
 img {
@@ -44,5 +44,13 @@ button:hover:enabled {
   color: #24c3ad;
   box-shadow: inset 120px 0 0 0 white;
   border-color: white;
+}
 
+#probabilities-pic {
+  margin-top: -35px;
+}
+
+#payment-pic {
+  width: 600px;
+  margin-right: 100px;
 }
