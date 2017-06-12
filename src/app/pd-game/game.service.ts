@@ -241,13 +241,13 @@ export class GameService {
     var choice = this.getChoice('self');
     var contrib: number = this.getSelfContrib();
     this.feedbackSelf = 'You chose to ' + choice + '. You contributed ' 
-      + contrib + ' points to give Kai ' + contrib*2 + ' points.';
+      + contrib + ' points to give Chris ' + contrib*2 + ' points.';
   }
 
   setFeedbackOpp() {
     var choice = this.getChoice('opp');
     var contrib: number = this.getOppContrib();
-    this.feedbackOpp = 'Kai chose to ' + choice + '. Kai contributed '
+    this.feedbackOpp = 'Chris chose to ' + choice + '. Chris contributed '
       + contrib + ' points to give you ' + contrib*2 + ' points.';
   }
 
