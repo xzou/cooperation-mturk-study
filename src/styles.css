@@ -75,7 +75,7 @@ input[type='submit'], button:hover:enabled {
   color: white;
   border-color: #24c3ad;
   cursor: crosshair;
-  box-shadow: inset 120px 0 0 0 #24c3ad;
+  box-shadow: inset 130px 0 0 0 #24c3ad;
 }
 
 .buttons {
