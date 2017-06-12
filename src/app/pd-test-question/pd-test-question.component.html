@@ -5,7 +5,7 @@
   </div>
   <div id="question">
     <p>What does it mean to cooperate and to defect?</p>
-  </div> <!-- div class="question" -->
+  </div> <!-- div id="question" -->
 
   <form #f="ngForm" (ngSubmit)="checkAnswer()">
     <input type="radio" name="quizAnswer" id="option1" [(ngModel)]="selectedOption" value="1"><label for="option1">{{ choiceAText }}</label> <br>
@@ -13,9 +13,9 @@
     <button type="submit" [disabled]="!isAnswered()" [hidden]="isSubmitted()">Submit</button>
   </form>
 
-  {{ feedback }}
+  <div id="feedback">{{ feedback }}</div>
 
   <div *ngIf="is_correct == true">
-      <pd-nav-button url="5" label="Next"></pd-nav-button>
+      <pd-nav-button url="6" label="Next" *ngIf="is_correct === true"></pd-nav-button>
   </div>
 </div> <!-- div class="type2-text" -->

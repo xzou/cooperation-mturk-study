@@ -1,0 +1,95 @@
+<div id="instructions" class="type2-text">
+
+  <div id="instructions-pages">
+    <h2 *ngIf="this.isInstructions">Instructions</h2>
+
+    <div id="1" *ngIf="this.page1">
+      <p>You will start the game with 100 points. These points come from your base 
+      pay of $1.00. You will get to keep at least 100 points throughout the game.</p>
+      <button type="button" class="next-button" (click)="this.setPageOne()">Next</button>
+    </div> <!-- div id="1" -->
+
+    <div id="2" *ngIf="this.page2">
+      <p>You will be playing a game with your opponent in which your goal is to collect 
+      as many points as possible over a series of rounds. On each round, you will be asked
+      to independently make a decision to either <strong>cooperate</strong> or to 
+      <strong>defect</strong>.</p>
+      <button type="button" class="next-button" (click)="this.setPageTwo()">Next</button>
+      <button type="button" class="back-button" (click)="this.backPageTwo()">Back</button>
+    </div> <!-- div id="2" -->
+
+    <div id="3" *ngIf="this.page3">
+      <p>If you choose to <strong>cooperate</strong>, you will pay 20 of your own points to
+      give 40 points to your opponent. If your opponent independently also chooses to cooperate
+      with you, you will receive 40 points.</p>
+      <button type="button" class="next-button" (click)="this.setPageThree()">Next</button>
+      <button type="button" class="back-button" (click)="this.backPageThree()">Back</button>
+    </div> <!-- div id="3" -->
+
+    <div id="4" *ngIf="this.page4">
+      <p>If you choose to <strong>defect</strong>, you will pay 0 points and give nothing to
+      your opponent. If your opponent likewise independently chooses to defect, you will receive 0
+      points on that round.</p>
+      <button type="button" class="next-button" (click)="this.setPageFour()">Next</button>
+      <button type="button" class="back-button" (click)="this.backPageFour()">Back</button>
+    </div> <!-- div id="4" -->
+
+    <div id="5" *ngIf="this.page5">
+      <p>If you choose to cooperate with your opponent but your opponent chooses to defect, then 
+      you will pay 20 points and they will receive 40 points, but they will pay nothing and you
+      will receive nothing.</p>
+      <button type="button" class="next-button" (click)="this.setPageFive()">Next</button>
+      <button type="button" class="back-button" (click)="this.backPageFive()">Back</button>
+    </div> <!-- div id="5" -->
+
+    <div id="6" *ngIf="this.page6">
+      <p>On the contrary, if you choose to defect against your opponent but they choose to
+      cooperate with you, then you will pay 0 points but will receive 40 points from your
+      opponent.</p>
+      <button type="button" class="next-button" (click)="this.setPageSix()">Next</button>
+      <button type="button" class="back-button" (click)="this.backPageSix()">Back</button>
+    </div> <!-- div id="6" -->
+
+    <div id="7" *ngIf="this.page7">
+      <p>Because you will be making decisions independently, you will not find out what decision
+      your opponent made until after you submit your decision. You will get the results of each
+      round after you click "submit."</p>
+      <button type="button" class="next-button" (click)="this.setPageSeven()">Next</button>
+      <button type="button" class="back-button" (click)="this.backPageSeven()">Back</button>
+    </div> <!-- div id="7" -->
+
+    <div id="8" *ngIf="this.page8">
+      <h2>Bonus Payment</h2>
+      <p>At the end of the experiment, the number of points you have over 100 will correspond
+      to your bonus payment, so you will need to collect as many points as possible to 
+      maximize your payout. </p>
+      <p><strong>NOTE: you must finish the experiment to receive this
+      bonus payment.</strong></p>
+      <button type="button" class="next-button" (click)="this.setPageEight()">Next</button>
+      <button type="button" class="back-button" (click)="this.backPageEight()">Back</button>
+    </div> <!-- div id="8" -->
+
+    <div id="9" *ngIf="this.page9">
+      <h2>Opponent Predictions</h2>
+      <p>You will also be asked to make predictions about your opponent throughout the game.
+      For example, if you were playing against an opponent named Kai, you would be asked to 
+      provide your guess about the probability that Kai will cooperate with you. </p>
+      
+      <p>Remember: a low probability (e.g. 0.1) means you think that Kai will not cooperate 
+      with you. A high probability (e.g. 0.9) means you are certain Kai will cooperate with 
+      you. Use the scale provided to be as accurate as possible about your predictions.</p>
+
+      <p>Click "Next" to proceed to the quiz. You must answer correctly to continue with 
+      the experiment.</p>
+
+      <button type="button" class="next-button" (click)="this.goToQuiz()">Next</button>
+      <button type="button" class="back-button" (click)="this.backPageNine()">Back</button>
+    </div> <!-- div id="9" -->
+
+  </div> <!-- div id="instructions-pages" -->
+</div> <!-- div id="instructions" -->
+
+  <div id="screenshot">
+    <img [src]="this.screenshotGamePath" *ngIf="this.isGameScreenshot">
+    <img [src]="this.screenshotProbPath" *ngIf="this.isProbScreenshot">
+  </div>

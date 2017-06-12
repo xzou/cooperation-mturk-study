@@ -1,0 +1,16 @@
+<div *ngIf="!this.is_found" id="search-message" class="type2-text">
+  <p>Finding opponent
+  <span class="dot">.</span>
+  <span class="dot">.</span>
+  <span class="dot">.</span> </p>
+</div> <!-- div id="search-message" -->
+
+<div id="congrats" class="type2-text">
+  <div *ngIf="this.is_found">
+    <p>Pairing successful. You have been matched with an opponent online.</p>
+    <div id="next-button">
+      <pd-nav-button url="4" label="Next"></pd-nav-button>
+    </div>
+  </div>
+</div>
+

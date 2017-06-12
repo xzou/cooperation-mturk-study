@@ -1,0 +1,21 @@
+#congrats {
+  width: 500px;
+  padding-top: 12%;
+  margin: auto;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+#search-message {
+  padding-top: 15%;
+  margin: auto;
+  width: 500px;
+  text-align: center;
+}
+
+#search-message p {
+  font-size: 30pt;
+}
+

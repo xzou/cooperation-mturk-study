@@ -26,6 +26,8 @@ import { PDMturkComponent } from './pd-mturk/pd-mturk.component';
 import { PDProbabilitiesComponent } from './pd-game/pd-probabilities/pd-probabilities.component';
 import { PDGenderComponent } from './pd-gender/pd-gender.component';
 import { PDGameQuestionComponent } from './pd-game/pd-game-question/pd-game-question.component';
+import { PDFindingOppComponent } from './pd-finding-opp/pd-finding-opp.component';
+import { PDInstructionsMainComponent } from './pd-instructions-main/pd-instructions-main.component';
 
 //import { CurrentPlayerService } from './players/current-player.service';
 
@@ -49,7 +51,9 @@ import { PDGameQuestionComponent } from './pd-game/pd-game-question/pd-game-ques
     PDMturkComponent,
     PDProbabilitiesComponent,
     PDGenderComponent,
-    PDGameQuestionComponent
+    PDGameQuestionComponent,
+    PDFindingOppComponent,
+    PDInstructionsMainComponent
   ],
   imports: [
     BrowserModule,

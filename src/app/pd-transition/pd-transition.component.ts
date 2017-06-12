@@ -10,21 +10,13 @@ export class PDTransitionComponent {
 
   constructor() { }
 
-  is_found: boolean = false;
+  is_done: boolean = false;
   private interval: any;
-
-  setFound() {
-    this.is_found = true;
-  }
 
   ngOnInit() {
     this.interval = setInterval(() => {
-      this.setFound();
+      this.is_done = true;
     }, 3500);
-  }
-
-  isFound() {
-    return this.is_found;
   }
 
   ngOnDestroy() {

@@ -20,7 +20,7 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 40pt;
+  font-size: 38pt;
   margin-bottom: 20px;
 }
 
@@ -44,27 +44,25 @@ p {
   font-size: 15pt;
 }
 
-pd-nav-button {
-  width: 400px;
-}
-
 input[type='radio'] {
   display: none;
 }
 
 input[type='submit'], button {
-  background-color: white;
-  border: 2px solid #666;
-  margin-top: 20px;
-  width: 140px;
-  height: 45px;
-  font-size: 12pt;
+  width: 120px;
+  height: 35px;
+  border: 2px solid #555;
+  color: #333;
+  font-weight: 300;
   text-transform: uppercase;
-  font-weight: 500;
+  background-color: white;
+  font-weight: 300;
+  font-size: 10pt;
   box-shadow: inset 0 0 0 0 #31302b;
   -webkit-transition: all ease 0.5s;
   -moz-transition: all ease 0.5s;
   transition: all ease 0.5s;
+  background-color: white;
 }
 
 input[type='submit']:disabled,
@@ -77,12 +75,11 @@ input[type='submit'], button:hover:enabled {
   color: white;
   border-color: #24c3ad;
   cursor: crosshair;
-  box-shadow: inset 140px 0 0 0 #24c3ad;
+  box-shadow: inset 120px 0 0 0 #24c3ad;
 }
 
 .buttons {
   padding-top: 0;
-  margin-top: -15px;
 }
 
 .next-button {
