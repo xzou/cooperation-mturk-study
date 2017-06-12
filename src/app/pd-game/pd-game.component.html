@@ -37,7 +37,7 @@
       </div> <!-- div id="game-choice" -->
 
       <div id="feedback" [hidden]="this.gameService.hideFeedback()">
-        <div id="self-panel" [hidden]="!this.gameService.submitted">
+        <div id="self-panel" [hidden]="!this.gameService.submitted" [ngClass]="{cooperate: this.gameService.choice === 'cooperate'}">
           <pd-game-self></pd-game-self>
         </div> <!-- div id="self-pane" -->
 

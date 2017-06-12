@@ -10,6 +10,7 @@ export class GameService {
   condition: number = 3;
 
   choice: string = '';
+  oppChoice: string = '';
   playerContribs: number[] = [];
   oppContribs: number[] = [];
   selfContrib: number = 0;
@@ -70,8 +71,10 @@ export class GameService {
     var oppChoice = this.population[idx];
     if (oppChoice === 0) {
       this.oppContrib = 0;
+      this.oppChoice = 'defect';
     } else if (oppChoice === 1) {
       this.oppContrib = 20;
+      this.oppChoice = 'cooperate';
     }
     this.addOppContrib(this.oppContrib);
     this.waiting = false;

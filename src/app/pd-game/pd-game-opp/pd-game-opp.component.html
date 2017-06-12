@@ -1,3 +1,5 @@
-<p>
-  {{ this.gameService.feedbackOpp }}
-</p>
+<div [ngClass]="{cooperate: this.gameService.oppChoice === 'cooperate'}">
+  <p>
+    {{ this.gameService.feedbackOpp }}
+  </p>
+</div>

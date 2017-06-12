@@ -1,3 +1,5 @@
-<p>
-  {{ this.gameService.feedbackSelf }}
-</p>
+<div [ngClass]="{cooperate: this.gameService.choice === 'cooperate'}">
+  <p>
+    {{ this.gameService.feedbackSelf }}
+  </p>
+</div>
