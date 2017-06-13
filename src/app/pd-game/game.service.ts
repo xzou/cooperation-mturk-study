@@ -5,9 +5,9 @@ export class GameService {
 
   constructor() { }
 
-  maxRounds: number = 9; 
-  firstSlider: number = 3;
-  condition: number = 3;
+  maxRounds: number = 80; 
+  firstSlider: number = 10;
+  condition: number = 1;
 
   pCoop1: number = .3;
   pCoop2: number = 1-this.pCoop1;
@@ -188,19 +188,14 @@ export class GameService {
       if (this.roundNumber === 40) {
         this.pCoop = this.pCoop2;
         this.setPopulation();
-        console.log('Changing probabilities');
       }
     } else if (this.condition === 2) {
         if (this.roundNumber === 20 || this.roundNumber === 60) {
           this.pCoop = this.pCoop2;
           this.setPopulation();
-          console.log('Changing probabilities');
-          console.log(this.pCoop);
         } else if(this.roundNumber === 40) {
           this.pCoop = this.pCoop1;
           this.setPopulation();
-          console.log('Changing probabilities');
-          console.log(this.pCoop);
         }
     } else if (this.condition === 3) {
       if (this.roundNumber === 10 || 
@@ -209,13 +204,11 @@ export class GameService {
           this.roundNumber === 70) {
         this.pCoop = this.pCoop2;
         this.setPopulation();
-        console.log('Changing probabilities');
       } else if (this.roundNumber === 20 ||
                 this.roundNumber === 40 ||
                 this.roundNumber === 60) {
         this.pCoop = this.pCoop1;
         this.setPopulation();
-        console.log('Changing probabilities');
       }
     }
   }

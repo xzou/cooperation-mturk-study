@@ -17,6 +17,8 @@ export class Player {
   public gender_filtered?: boolean;
   public opp_behavior?: string;
   public check_answer?: string;
+  public condition?: number;
+  public payment?: string;
 
   constructor (
     name?: string,

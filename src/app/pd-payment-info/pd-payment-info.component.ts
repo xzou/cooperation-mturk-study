@@ -15,12 +15,5 @@ export class PDPaymentInfoComponent implements OnInit {
   constructor(private curPlayerService: CurrentPlayerService) { }
 
   ngOnInit() {
-    this.setPayment();
   }
-
-  setPayment() {
-    this.payment = (1 + 0.01*(this.curPlayerService.player.player_score - 100)/10).toFixed(2);
-    console.log(this.payment);
-  }
-
 }

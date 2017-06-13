@@ -25,7 +25,9 @@ export class CurrentPlayerService {
     is_complete: false,
     gender_filtered: false,
     opp_behavior: '',
-    check_answer: ''
+    check_answer: '',
+    condition: 0,
+    payment: ''
   };
 
   getPlayer() {

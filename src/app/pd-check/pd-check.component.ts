@@ -48,6 +48,8 @@ export class PDCheckComponent implements OnInit, OnDestroy {
       contrib_times: this.curPlayerService.player.contrib_times,
       probabilities_times: this.curPlayerService.player.probabilities_times,
       opp_behavior: this.curPlayerService.player.opp_behavior,
+      condition: this.curPlayerService.player.condition,
+      payment: this.curPlayerService.player.payment,
       is_complete: true,
       check_answer: this.checkChoice
     }

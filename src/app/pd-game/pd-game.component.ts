@@ -16,6 +16,7 @@ import { GameService } from './game.service';
 export class PDGameComponent implements OnInit {
   playerImagePath: string;
   oppImagePath: string;
+  payment: string;
 
   constructor(private router: Router,
               private playerService: PlayerService,
@@ -35,6 +36,7 @@ export class PDGameComponent implements OnInit {
   }
 
   goToPaymentInfo() {
+    this.payment = (1 + 0.01*(this.gameService.totalPoints - 100)/10).toFixed(2);
     var updPlayer: Player = {
       _id: this.curPlayerService.player._id,
       ip: this.curPlayerService.player.ip,
@@ -51,6 +53,8 @@ export class PDGameComponent implements OnInit {
       contrib_times: this.gameService.contribTimes,
       probabilities_times: this.gameService.probabilitiesTimes,
       opp_behavior: this.gameService.oppBehavior,
+      condition: this.gameService.condition,
+      payment: this.payment
     }
   
     this.playerService.updatePlayer(updPlayer)
@@ -63,6 +67,8 @@ export class PDGameComponent implements OnInit {
           this.curPlayerService.player.contrib_times = this.gameService.contribTimes;
           this.curPlayerService.player.probabilities_times = this.gameService.probabilitiesTimes;
           this.curPlayerService.player.opp_behavior = this.gameService.oppBehavior;
+          this.curPlayerService.player.condition = this.gameService.condition;
+          this.curPlayerService.player.payment = this.payment; 
           this.router.navigateByUrl('/8', { replaceUrl: true });
         });
   }
