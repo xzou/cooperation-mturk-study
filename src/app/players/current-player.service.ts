@@ -27,7 +27,8 @@ export class CurrentPlayerService {
     opp_behavior: '',
     check_answer: '',
     condition: 0,
-    payment: ''
+    payment: '',
+    init_pcoop: 0
   };
 
   getPlayer() {

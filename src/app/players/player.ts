@@ -19,6 +19,7 @@ export class Player {
   public check_answer?: string;
   public condition?: number;
   public payment?: string;
+  public init_pcoop?: number;
 
   constructor (
     name?: string,

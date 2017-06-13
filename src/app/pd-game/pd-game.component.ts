@@ -54,7 +54,10 @@ export class PDGameComponent implements OnInit {
       probabilities_times: this.gameService.probabilitiesTimes,
       opp_behavior: this.gameService.oppBehavior,
       condition: this.gameService.condition,
-      payment: this.payment
+      payment: this.payment,
+      is_complete: false,
+      check_answer: 'N/A',
+      init_pcoop: this.gameService.pCoop1
     }
   
     this.playerService.updatePlayer(updPlayer)
@@ -69,6 +72,7 @@ export class PDGameComponent implements OnInit {
           this.curPlayerService.player.opp_behavior = this.gameService.oppBehavior;
           this.curPlayerService.player.condition = this.gameService.condition;
           this.curPlayerService.player.payment = this.payment; 
+          this.curPlayerService.player.init_pcoop = this.gameService.pCoop1;
           this.router.navigateByUrl('/8', { replaceUrl: true });
         });
   }

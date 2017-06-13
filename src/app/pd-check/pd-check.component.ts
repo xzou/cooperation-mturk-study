@@ -51,7 +51,8 @@ export class PDCheckComponent implements OnInit, OnDestroy {
       condition: this.curPlayerService.player.condition,
       payment: this.curPlayerService.player.payment,
       is_complete: true,
-      check_answer: this.checkChoice
+      check_answer: this.checkChoice,
+      init_pcoop: this.curPlayerService.player.init_pcoop
     }
   
     this.playerService.updatePlayer(updPlayer)
