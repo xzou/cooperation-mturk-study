@@ -57,7 +57,7 @@ export class PDGameComponent implements OnInit {
       payment: this.payment,
       is_complete: false,
       check_answer: 'N/A',
-      init_pcoop: this.gameService.pCoop1
+      init_prob: this.gameService.pCoop1
     }
   
     this.playerService.updatePlayer(updPlayer)
@@ -72,7 +72,7 @@ export class PDGameComponent implements OnInit {
           this.curPlayerService.player.opp_behavior = this.gameService.oppBehavior;
           this.curPlayerService.player.condition = this.gameService.condition;
           this.curPlayerService.player.payment = this.payment; 
-          this.curPlayerService.player.init_pcoop = this.gameService.pCoop1;
+          this.curPlayerService.player.init_prob = this.gameService.pCoop1;
           this.router.navigateByUrl('/8', { replaceUrl: true });
         });
   }

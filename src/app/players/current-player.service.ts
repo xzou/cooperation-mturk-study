@@ -28,7 +28,7 @@ export class CurrentPlayerService {
     check_answer: '',
     condition: 0,
     payment: '',
-    init_pcoop: 0
+    init_prob: 0
   };
 
   getPlayer() {
