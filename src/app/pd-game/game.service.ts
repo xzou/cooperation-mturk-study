@@ -5,8 +5,8 @@ export class GameService {
 
   constructor() { }
 
-  maxRounds: number = 80; 
-  firstSlider: number = 10;
+  maxRounds: number = 1; 
+  firstSlider: number = 1;
   condition: number = 3;
 
   choice: string = '';

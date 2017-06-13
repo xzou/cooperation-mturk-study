@@ -28,7 +28,7 @@ export class PDCheckComponent implements OnInit, OnDestroy {
   }
 
   submitAnswer() {
-    this.router.navigateByUrl('/code', { replaceUrl: true });
+    this.router.navigateByUrl('/debriefing', { replaceUrl: true });
   }
 
   ngOnDestroy() {

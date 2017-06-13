@@ -29,6 +29,7 @@ import { PDGameQuestionComponent } from './pd-game/pd-game-question/pd-game-ques
 import { PDFindingOppComponent } from './pd-finding-opp/pd-finding-opp.component';
 import { PDInstructionsMainComponent } from './pd-instructions-main/pd-instructions-main.component';
 import { PDCheckComponent } from './pd-check/pd-check.component';
+import { PDDebriefingComponent } from './pd-debriefing/pd-debriefing.component';
 
 //import { CurrentPlayerService } from './players/current-player.service';
 
@@ -55,7 +56,8 @@ import { PDCheckComponent } from './pd-check/pd-check.component';
     PDGameQuestionComponent,
     PDFindingOppComponent,
     PDInstructionsMainComponent,
-    PDCheckComponent
+    PDCheckComponent,
+    PDDebriefingComponent
   ],
   imports: [
     BrowserModule,

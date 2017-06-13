@@ -15,6 +15,7 @@ import { PDMturkComponent } from './pd-mturk/pd-mturk.component';
 import { PDGenderComponent } from './pd-gender/pd-gender.component';
 import { PDInstructionsMainComponent } from './pd-instructions-main/pd-instructions-main.component';
 import { PDCheckComponent } from './pd-check/pd-check.component';
+import { PDDebriefingComponent } from './pd-debriefing/pd-debriefing.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path: '8',
     component: PDCheckComponent
+  },
+  {
+    path: 'debriefing',
+    component: PDDebriefingComponent
   },
   {
     path: 'code',
