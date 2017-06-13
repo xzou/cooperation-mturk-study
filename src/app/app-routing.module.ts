@@ -44,14 +44,18 @@ const routes: Routes = [
   },
   {
     path: '6',
-    component: PDGameComponent
+    component: PDTransitionComponent
   },
   {
     path: '7',
-    component: PDPaymentInfoComponent
+    component: PDGameComponent
   },
   {
     path: '8',
+    component: PDPaymentInfoComponent
+  },
+  {
+    path: '9',
     component: PDCheckComponent
   },
   {

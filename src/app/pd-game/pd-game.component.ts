@@ -63,7 +63,7 @@ export class PDGameComponent implements OnInit {
           this.curPlayerService.player.contrib_times = this.gameService.contribTimes;
           this.curPlayerService.player.probabilities_times = this.gameService.probabilitiesTimes;
           this.curPlayerService.player.opp_behavior = this.gameService.oppBehavior;
-          this.router.navigateByUrl('/7', { replaceUrl: true });
+          this.router.navigateByUrl('/8', { replaceUrl: true });
         });
   }
 }

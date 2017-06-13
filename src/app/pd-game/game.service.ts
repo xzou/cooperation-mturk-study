@@ -9,6 +9,10 @@ export class GameService {
   firstSlider: number = 3;
   condition: number = 3;
 
+  pCoop1: number = .3;
+  pCoop2: number = 1-this.pCoop1;
+  pCoop: number = this.pCoop1;
+
   choice: string = '';
   oppChoice: string = '';
   playerContribs: number[] = [];
@@ -23,9 +27,6 @@ export class GameService {
   oppMoved: boolean = false; 
   population: number[]; 
   interval: any;
-  pCoop1: number = .3;
-  pCoop2: number = 1-this.pCoop1;
-  pCoop: number = this.pCoop1;
   roundNumber: number = 1;
   submitted: boolean = false;
   oppAnswered: boolean = false;

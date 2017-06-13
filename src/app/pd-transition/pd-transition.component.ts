@@ -16,7 +16,7 @@ export class PDTransitionComponent {
   ngOnInit() {
     this.interval = setInterval(() => {
       this.is_done = true;
-    }, 3500);
+    }, 5300);
   }
 
   ngOnDestroy() {
