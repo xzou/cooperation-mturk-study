@@ -7,7 +7,7 @@ export class GameService {
 
   maxRounds: number = 80; 
   firstSlider: number = 10;
-  condition: number = 3;
+  condition: number = 1;
 
   pCoop1: number = .65;
   pCoop2: number = 1-this.pCoop1;
