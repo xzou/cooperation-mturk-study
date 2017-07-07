@@ -40,7 +40,8 @@ export class PDNameComponent implements OnInit {
 
               this.players.some(player => {
                 if (data.ip === player.ip) {
-                  this.router.navigateByUrl('/sorry', { replaceUrl: true });
+                  //this.router.navigateByUrl('/sorry', { replaceUrl: true });
+                  console.log('Revisited'); 
                 }  
                 return data.ip === player.ip;
               });
