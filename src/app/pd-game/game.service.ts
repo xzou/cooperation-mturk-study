@@ -6,11 +6,11 @@ export class GameService {
   constructor() { }
 
   // Change the maximum number of rounds here
-  maxRounds: number = 80;   
+  maxRounds: number = 20;   
   /* Indicates the number of rounds between the appearance of each slider.
     For example, firstSlider = 10 means that the slider will appear after
     rounds 10, 20, 30, etc. */
-  firstSlider: number = 10;
+  firstSlider: number = 5;
 
   /* Set condition number, where 
       Condition 1: P(cooperation) changes after every 40 rounds
